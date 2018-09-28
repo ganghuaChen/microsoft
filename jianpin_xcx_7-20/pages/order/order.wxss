@@ -1,0 +1,175 @@
+/* pages/order/order.wxss */
+@import "../../style/iconfont/iconfont.wxss";
+
+page{
+  background-color: #eeeeee;
+  padding-top: 80rpx;
+}
+
+.order_tab{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #fff;
+  border-bottom: 1px solid #e7e7e7;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.order_tab .tab_item{
+  width: 25%;
+  box-sizing: border-box;
+  float: left;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: #333;
+  height: 80rpx;
+}
+.order_tab .tab_item .tab_item_title{
+  font-size: 15px;
+  padding: 27rpx 0 23rpx 0;
+}
+
+.order_tab .tab_item .active{
+  border-bottom: 2px solid #ff4965;
+  border-bottom-color: #ff4965;
+  color: #ff4965;
+}
+
+.order_list .tips{
+  width: 100vw;
+  height: 200rpx;
+  line-height: 200rpx;
+  font-size: 18px;
+  color: #666;
+  text-align: center
+}
+
+.order_item{
+  margin-bottom: 18rpx;
+  background-color: #fff; 
+  overflow: hidden
+}
+.order_item .btn{
+  display: block;
+  border: 1px solid #ff4965;
+  border-radius: 4rpx;
+  padding: 4rpx 8rpx;
+  font-size: 13px;
+  color: #ff4965;
+  float: left;
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+}
+
+.order_item .order_item_header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30rpx 20rpx;
+  font-size: 12px;
+  color: #3d4244;
+  line-height: 12px!important;
+}
+.order_item .order_item_header .order_status{
+  color: #ff4965;  
+}
+
+.order_item .order_item_header .status{
+  color: #ff4965;
+}
+
+.order_item .order_item_header .store .store_name{
+  font-size: 14px;
+  margin-right: 25rpx;
+}
+
+.order_item .order_item_goods {
+  background-color: #f9f9f9;
+  padding: 10rpx;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  box-sizing: border-box
+}
+.order_item .order_item_goods .order_item_goods_detail{
+  margin-bottom: 15rpx;
+}
+.order_item .order_item_goods .order_item_goods_detail .goods_item{
+  width: 100%;
+}
+.order_item .order_item_goods .order_nav{
+  width: 100%;
+}
+.order_item .order_item_goods .order_nav .order_item_goods{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.order_item .order_item_goods .order_nav .order_item_goods .goods_item:not(:last-child){
+  padding-bottom: 10rpx;
+}
+.order_item .order_item_goods .goods_img,.order_item .order_item_goods image{
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 22rpx;
+}
+.order_item .order_item_goods .goods_desc{
+  width: 370rpx;
+  font-size: 12px;
+}
+.order_item .order_item_goods .goods_price{
+  margin-left: auto;
+  color: #333;
+}
+.order_item .order_item_goods .goods_item{
+  display: flex;
+  flex-direction: row;
+  
+}
+.order_item.order_btn{
+  margin-bottom: 0;
+  padding: 0 20rpx 10rpx;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.order_item.order_btn .refund{
+  color: #aaa;
+  border-color: #aaa;
+}
+.order_item .order_item_price{
+  text-align: right;
+  font-size: 12px;
+  padding: 20rpx; 
+  overflow: hidden;
+}
+.order_item .order_item_price .order_detail{
+  float: left;
+  border: 1px solid #ff4965;
+  border-radius: 4rpx;
+  padding: 4rpx 8rpx;
+  color:#ff4965;
+}
+.order_item .order_item_price .final_price{
+  font-size: 14px;
+}
+.customer{
+  background-color: #ff4965;
+  padding: 10rpx 20rpx;
+  height: 14px
+}
+.customer .tips{
+  font-size: 14px;
+  color: #fff;
+  line-height: 14px
+}
+.customer .tips .iconfont{
+  font-size: 14px;
+}

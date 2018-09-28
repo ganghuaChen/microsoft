@@ -1,0 +1,8 @@
+<!--pages/pusher/pusher.wxml-->
+<view>
+
+  <live-pusher url="{{pushAddress}}" mode="FHD" autopush bindstatechange="statechange" binderror="onPushError" style="width: 100vw; height: 100vh;">
+  </live-pusher>
+
+
+</view>

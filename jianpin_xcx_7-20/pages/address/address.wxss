@@ -1,0 +1,57 @@
+/* pages/address/address.wxss */
+@import "../../style/iconfont/iconfont.wxss";
+
+page{
+  background-color: #eeeeee;
+}
+.wrap{
+  overflow: hidden;
+  padding-bottom: 20rpx;
+}
+.wrap .form_item{
+  display: flex;
+  flex-direction: row;
+  color: #3d4245;
+  padding-left: 25rpx;
+  font-size: 13px;
+  padding: 34rpx 25rpx;
+  border-bottom: 1px solid #eeeeee;
+  background-color: #fff;
+}
+.wrap .form_title{
+  width: 185rpx;
+}
+.wrap .form_item .picker_item{
+  display: flex;
+  flex-direction: row;
+  margin-right: 10rpx;
+}
+.wrap .form_item .picker_item text{
+  font-size: 13px;
+  color: #999;
+  margin-left: 5rpx;
+}
+.wrap .form_item textarea{
+  height: 90rpx;
+  width: 100vw;
+  box-sizing: border-box;
+}
+.wrap .address{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 500rpx;
+  justify-content: flex-start;
+}
+.btn_box{
+  margin-top: 20rpx;
+  padding: 0 10rpx;
+}
+.btn_box .update{
+  margin-bottom: 10rpx;
+  background-color: #fff;
+  color: #ff4965;
+}
+.btn_box .cancel{
+  color: #999;
+}

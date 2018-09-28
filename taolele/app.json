@@ -1,0 +1,45 @@
+{
+  "pages": [
+    
+    "pages/index/index",
+    "pages/category/index",
+    "pages/categoryItem/index",
+    "pages/top20/index",
+    "pages/template/template",
+    "pages/detail/index"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff6f00",
+    "navigationBarTitleText": "优惠券",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#666",
+    "borderStyle": "black",
+    "selectedColor": "#ff6f00",
+    "backgroundColor": "#fff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabbar_icon_1_gray.png",
+        "selectedIconPath": "images/tabbar_icon_1_light.png"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "text": "分类",
+        "iconPath": "images/tabbar_icon_2_gray.png",
+        "selectedIconPath": "images/tabbar_icon_2_light.png"
+      },
+      {
+        "pagePath": "pages/top20/index",
+        "text": "20元封顶",
+        "iconPath": "images/tabbar_icon_3_gray.png",
+        "selectedIconPath": "images/tabbar_icon_3_light.png"
+      }
+    ]
+  }
+}

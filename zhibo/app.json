@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/player/player",
+    "pages/pusher/pusher",
+    "pages/kaibo/kaibo",
+    "pages/guankan/guankan"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "小程序直播演示",
+    "navigationBarTextStyle": "black"
+  }
+}

@@ -1,0 +1,72 @@
+<!--pages/order/order.wxml-->
+<view class="order_tab">
+  <view class="tab_item obligation" bindtap="switchTab" id="11">
+    <view class="tab_item_title {{tab[0]}}">全部</view>
+  </view>
+  <view class="tab_item " bindtap="switchTab" id="1">
+    <view class="tab_item_title {{tab[1]}}">待付款</view>
+  </view>
+  <view class="tab_item " bindtap="switchTab" id="2">
+    <view class="tab_item_title {{tab[2]}}">待发货</view>
+  </view>
+  <view class="tab_item " bindtap="switchTab" id="3">
+    <view class="tab_item_title {{tab[3]}}">待收货</view>
+  </view>
+</view>
+<view class="order_list">
+  <view class="tips" wx:if="{{!currentOrder||currentOrder.length == 0}}">{{'您还没有订单'}}</view>
+  <!--订单主体-->
+  <view class="order_item" wx:for="{{currentOrder}}" wx:key="order_item">
+    <view class="customer" wx:if="{{item.customs==2}}">
+      <view class="tips">
+        <text class="iconfont icon-warning"></text> 由于清关失败，订单已退款。
+      </view>
+    </view>
+    <view class="order_item_header">
+      <view class="store">
+        {{'订单编号: ' +item.order}}
+      </view>
+      <view class="order_status" wx:if="{{item.refundstatus == 1 &&item.status != -1}}">退款审核中</view>
+      <view class="order_status" wx:if="{{item.status == 1&&orderIndex==11}}">待付款</view>
+      <view class="order_status" wx:if="{{item.status == 2&&orderIndex==11&&item.refundstatus != 1}}">待发货</view>
+      <view class="order_status" wx:if="{{item.status == 3&&orderIndex==11&&item.refundstatus != 1}}">待收货</view>
+      <view class="order_status" wx:if="{{item.status == 4&&orderIndex==11&&item.refundstatus != 1}}">已完成</view>
+      <view class="order_status" wx:if="{{item.status == -1&&orderIndex==11}}">已退款</view>
+      <view class="order_status" wx:if="{{item.status == -2&&orderIndex==11}}">已取消</view>
+    </view>
+    <view class="order_item_goods" data-orderSn="{{item.order}}" bindtap="orderDetail">
+      <view class="order_item_goods_detail" wx:for="{{item.goods}}" wx:key="order_goods">
+        <view class="goods_item" wx:for="{{item}}" wx:key="order_goods_item">
+          <!--<navigator url="../info/info?goodsId={{item.goodsid}}" class="goods_item">-->
+          <view class="goods_img">
+            <image src="{{item.goods_img}}" mode="aspectFill"></image>
+          </view>
+          <view class="goods_desc">
+            {{item.business_name}}{{item.goods_name}}
+          </view>
+          <view class="goods_price">
+            <text style="font-size:16px;line-height:16px;">{{"￥"+item.goodprice}}</text>
+            <text style="font-size:14px;line-height:16px;">{{'×'+item.num}}</text>
+          </view>
+          <!--</navigator>-->
+        </view>
+      </view>
+    </view>
+    <view class="order_item order_btn">
+      <!--去支付-->
+      <view class="btn pay" wx:if="{{item.status == 1}}" data-ordersn="{{item.order}}" bindtap="pay">去支付</view>
+      <!--确认收货-->
+      <view class="btn confirmGoods" wx:if="{{item.status == 3&&item.refundstatus!=1}}" data-ordersn="{{item.order}}" bindtap="confirmGoods">确认收货</view>
+      <!--取消订单-->
+      <view class="btn refund" wx:if="{{item.status == 1}}" data-ordersn="{{item.order}}" bindtap="cancelOrder">取消订单</view>
+      <!--退款-->
+      <view class="btn refund" wx:if="{{item.status==2&&item.refundstatus!=1&&item.is_return == 1||item.status==3&&item.refundstatus!=1&&item.is_return == 1||item.status==4&&item.refundstatus!=1&&item.is_return == 1}}" bindtap="refund" data-ordersn="{{item.order}}">退款</view>
+    </view>
+    <view class="order_item_price">
+      <view class="order_detail" data-orderSn="{{item.order}}" bindtap="orderDetail">
+        订单详情
+      </view>
+      <view class="final_price">{{'共'+item.count+'件商品 合计：￥'+item.price}}</view>
+    </view>
+  </view>
+</view>

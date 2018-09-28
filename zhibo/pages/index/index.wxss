@@ -1,0 +1,15 @@
+/* pages/index/index.wxss */
+.page-index{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.page-index button{
+  width: 100%;
+  margin: 40rpx 0;
+}

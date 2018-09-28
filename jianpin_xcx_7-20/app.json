@@ -1,0 +1,53 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/activity/activity",
+    "pages/cart/cart",
+    "pages/center/center",
+    "pages/cate/cate",
+    "pages/info/info",
+    "pages/order/order",
+    "pages/coupon/coupon",
+    "pages/getTicket/getTicket",
+    "pages/search/search",
+    "pages/orderDetail/orderDetail",
+    "pages/confirmOrder/confirmOrder",
+    "pages/address/address",
+    "pages/refundOrder/refundOrder",    
+    "pages/refund/refund",
+    "pages/refundInfo/refundInfo",
+    "pages/identity/identity",
+    "pages/addIdentity/addIdentity",
+    "pages/addresslist/addresslist",
+    "pages/commonProblem/commonProblem"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#ff4965",
+    "navigationBarTitleText": "尖品",
+    "navigationBarTextStyle":"light"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "color" : "#9e9e9e",
+    "selectedColor" : "#ff4965",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/home.png",
+      "selectedIconPath": "images/home_active.png"
+    },
+    {
+      "pagePath": "pages/cart/cart",
+      "text": "购物车",
+      "iconPath": "images/cart.png",
+      "selectedIconPath": "images/cart_active.png"
+    },
+    {
+      "pagePath": "pages/center/center",
+      "text": "我的",
+      "iconPath": "images/center.png",
+      "selectedIconPath": "images/center_active.png"
+    }]
+  }
+}

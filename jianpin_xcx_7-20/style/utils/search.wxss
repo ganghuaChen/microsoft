@@ -1,0 +1,26 @@
+.search {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100vw;
+  background: #ff4965;
+  padding: 7px 40rpx;
+  box-sizing: border-box;
+}
+
+.search .search-bar {
+  background: #fff;
+  border-radius: 40rpx;
+  box-shadow: 0 0 8px 3px rgba(0 ,0 ,0 ,0.02);
+  font-size: 11pt;
+  text-align: center;
+}
+
+.search .search-bar .search_info {
+  display: inline-block;
+  line-height: 30px;
+  color: #999;
+}
+.icon-search{
+  margin-right: 10rpx;
+}

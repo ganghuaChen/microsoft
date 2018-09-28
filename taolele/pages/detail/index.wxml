@@ -1,0 +1,57 @@
+<view class="page-detail">
+  <view class="slider">
+      <!-- <image mode="widthFix" src="/images/photo.png"></image> -->
+      <swiper indicator-dots indicator-active-color="#ff6f00" autoplay interval="3000" duration="500">
+        <block wx:for="{{imgUrls}}" wx:key="{{item}}">
+          <swiper-item data-current="{{item}}" bindtap="previewImage">
+            <image src="{{item}}" mode="widthFix" class="slide-image"/>
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+  <view class="info">
+    <view class="title">{{detail.title}}</view>
+    <view class="price"><text class="text-primary">￥{{detail.zkFinalPriceWap}}</text> <text class="origin">￥{{detail.reservePrice}}</text></view>
+    <view class="sold">销量：{{detail.volume}} <text class="provcity">{{detail.provcity}}</text></view>
+  </view>
+  <view class="ticket" wx:if="{{detail.couponInfo}}">
+      <view class="label">优惠券</view>
+      <view class="cont">
+        <text class="text">{{detail.couponInfo}}</text>
+        <text class="time">活动时间：{{detail.couponStartTime}} ~ {{detail.couponEndTime}}</text>
+      </view>
+  </view>
+
+  <view class="recomend">
+      <view class="title">
+        你可能还喜欢
+      </view>
+      <view class="goods">
+        <view class="good-item" wx:for="{{recommends}}" wx:key="{{item.id}}">
+            <view class="inner" data-id="{{item.id}}" bindtap="readDetail">
+              <view class="img">
+                <image src="{{item.pictUrl}}" mode="widthFix"></image>
+              </view>
+              <view class="text">
+                <view class="name">
+                  {{item.title}}
+                </view>
+                <view class="price">
+                  <text class="text-primary">￥{{item.zkFinalPriceWap}}</text>
+                  <text class="origin">￥{{item.reservePrice}}</text>
+                </view>
+              </view>
+              
+            </view>
+        </view>
+      </view>
+  </view>
+
+  <view class="btn-bottom-fixed">
+    <button bindtap="getMyCode">立即领取</button>
+  </view>
+
+
+    <import src="../template/template.wxml"></import>
+    <template is="codeDialog" data="{{dialogData}}"></template>
+</view>

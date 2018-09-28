@@ -1,0 +1,44 @@
+<!--pages/search/search.wxml-->
+<import src='../../template/importMark/importMark.wxml'/>
+<!--search-->
+<view class="search">
+  <view class="search_left">
+    <text class="search_icon iconfont icon-search"></text>
+    <text class="search_clear iconfont icon-clear" bindtap="clear" wx:if="{{input.length>=1}}"></text>
+    <input class="search_input" placeholder="搜索尖品商品" bindinput="syncInput" auto-focus value="{{input}}" />
+  </view>
+  <view class="search_right">
+    <view class="search_btn start" wx:if="{{input}}" bindtap="search">搜索</view>
+    <view class="search_btn cancel" wx:if="{{!input}}" bindtap="back">取消</view>
+  </view>
+</view>
+<!--search-->
+
+<view class="empty" wx:if="{{emptyFlag}}">
+  没有相关商品
+</view>
+<view class="result">
+  <view class="result_item" wx:for="{{result}}" wx:key="result_item" wx:if="{{resultState}}">
+      <!--<template wx:if="{{item.is_imported == 1}}" is="importMark"></template>-->
+      <navigator url="../info/info?goodsId={{item.id}}">
+        <view class="goods_item">
+            <view class="goods_left">
+              <image src="{{item.goods_image}}" mode="aspectFill"></image>
+            </view>
+            <view class="goods_right">
+              <view class="info">
+                <view class="goods_name">{{item.goods_name}}</view>             
+              </view>
+              <view class="goods_price_box">
+                <view class="goods_price">
+                  <text>{{"￥"+item.goods_price}}</text>
+                </view>
+                <view class="goods_buy_btn" catchtap="addCart">
+                  <i class="iconfont icon-cart"></i>
+                </view>
+              </view>
+            </view>
+        </view>
+      </navigator>
+  </view>
+</view>

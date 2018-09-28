@@ -1,0 +1,26 @@
+<view class='page-guankan'>
+  <view class='bd'>
+    <view class='thumb'>
+      <image mode="aspectFill" src="{{liveInfo.content.thumb}}"></image>
+    </view>
+    <view class='text'>
+      <view class='row'>
+        <text class='label'>标题：</text>
+        <text class='value'>{{liveInfo.content.name}}</text>
+      </view>
+      <view class='row'>
+        <text class='label'>频道：</text>
+        <text class='value'>{{liveInfo.channel.channelName}}</text>
+      </view>
+      <view class='row'>
+        <text class='label'>时间：</text>
+        <text class='value'>{{liveInfo.content.startTime}}至{{liveInfo.content.endTime}}</text>
+      </view>
+      <view class='row'>
+        <text class='label'>介绍：</text>
+        <text class='value'>{{liveInfo.content.remark}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='ft' bindtap='goPlayer'>开始观看</view>
+</view>

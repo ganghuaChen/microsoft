@@ -1,0 +1,10 @@
+<!--pages/player/player.wxml-->
+<view class='page-player'>
+<live-player src="{{livePlayAddressRtmp}}" mode="live" autoplay bindstatechange="statechange" object-fit="fillCrop" style="width: 100vw; height: 100vh;">
+
+      <cover-view class="cover">
+        <cover-view class="state" wx:if="{{!isPlaying}}">连接中...</cover-view>
+        
+      </cover-view>
+    </live-player>
+</view>

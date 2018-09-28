@@ -1,0 +1,119 @@
+/* pages/center/center.wxss */
+@import "../../style/iconfont/iconfont.wxss";
+page{
+  background-color:  #e8e8ed;
+}
+.user_info{
+  background-image: linear-gradient(to bottom, #ff4965,40%,#fec2cc);
+  padding: 2.2rem 0;
+}
+.user_info image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 5rpx solid #e5005b;
+}
+.user_info .account{
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.user_info .account .user_name{
+  color: #fff;
+  font-size: 15px;
+}
+.order{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.order{
+  background-color: #fff;
+}
+.order .total_order{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #666666;
+  border-bottom: 1px solid #eeeeee;
+  padding:10px 20rpx;
+}
+.order .order_list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #eeeeee;
+  padding: 10rpx 20rpx
+}
+.order_list .order_item{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #333333;
+  width: 25%;
+  box-sizing: border-box;
+  height: 100%;
+  padding:5rpx 0;
+}
+.order_list .order_item .order_title{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.order_list .order_item .order_title .order_title_icon{
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+.order_list .order_item .order_title .order_title_icon .iconfont{
+  font-size: 18px;
+}
+.order_list .total_order .total_order_text{
+  font-size: 12px;
+  margin-right: 12rpx;
+}
+
+.order_list .order_item .order_title{
+  color: #666666;
+  font-size: 12px;
+}
+.more{
+  margin-left: auto;
+  color: #999;
+}
+.coupon_ticket,.address{
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  padding: 0 20rpx;
+  color: #666;
+  background-color: #fff;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px #eee solid;
+  width: 100vw;
+  box-sizing: border-box;
+}
+.coupon_ticket .coupon_ticket_title i,.address .address_title i{
+  margin-right: 10rpx;
+  font-size: 18px!important;
+}
+/*客服按钮*/
+.contact-btn {
+    position: fixed;
+    z-index: 99999;
+    right: 10px;
+    top: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 12px;
+}

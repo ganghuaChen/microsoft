@@ -1,0 +1,65 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.0.9",
+	"appid": "wx00583e746490c336",
+	"projectname": "zhibo",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": 0,
+					"name": "pusher",
+					"pathName": "pages/pusher/pusher",
+					"query": "contentId=201808021006400651"
+				},
+				{
+					"id": 1,
+					"name": "player",
+					"pathName": "pages/player/player",
+					"query": "contentId=201808021006400651"
+				},
+				{
+					"id": 2,
+					"name": "开播",
+					"pathName": "pages/kaibo/kaibo",
+					"query": "contentId=201808022030308983"
+				},
+				{
+					"id": -1,
+					"name": "观看",
+					"pathName": "pages/guankan/guankan",
+					"query": "contentId=201808022030308983"
+				}
+			]
+		}
+	}
+}

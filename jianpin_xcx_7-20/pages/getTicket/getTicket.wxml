@@ -1,0 +1,47 @@
+<!--pages/getTicket/getTicket.wxml-->
+
+<view class="empty_tips" 
+wx:if="{{ticket.length < 1}}">
+  <view class="empty_icon">
+    <text class="iconfont icon-search"></text>
+  </view>
+  <view class="empty_text">
+    <text>没有可领取的优惠券</text>
+  </view>
+</view>
+
+<view class="ticket_list">
+  <view class="ticket_item_box"  
+  wx:for="{{ticket}}" 
+  wx:key="coupon_ticket">
+    <view class="ticket_item">
+      <view class="ticket_price">
+        <view class="ticket_price_left">
+        <span class="price_code">￥</span>
+          {{item.amount}}
+        </view>
+        <view class="ticket_price_right">
+          <view class="use_range">
+            {{'消费满'+item.fulfilvalue+'元即可使用'}}
+          </view>
+          <view class="use_range" style="font-size:13px;" wx:if="{{item.business_name != undefined}}">
+            {{'仅限购买'+item.business_name+'产品'}}
+          </view>
+        </view>
+      </view>
+      <view class="ticket_range">
+          <view style="color:#f00">
+            {{item.category_name}}
+          </view>
+          <view class="ticket_timeout">
+            {{item.validity}}
+          </view>
+      </view>
+    </view>
+    <view class="get_ticket" catchtap="get" id="{{index}}" data-couponid="{{item.id}}">
+      <view class="get_ticket_text">
+        立即领取
+      </view>
+    </view>
+  </view>
+</view>

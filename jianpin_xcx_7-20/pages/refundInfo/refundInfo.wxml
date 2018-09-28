@@ -1,0 +1,77 @@
+<!--pages/refundInfo/refundInfo.wxml-->
+<view class="wrapper">
+  <view class="refund_box refund_info">
+    <view class="refund_box_row">
+      <view class="refund_box_row_title">回寄地址:</view>
+      <view class="refund_box_row_info">{{r_address}}</view>
+    </view>
+    <view class="refund_box_row">
+      <view class="refund_box_row_title">回寄电话:</view>
+      <view class="refund_box_row_info">{{r_phone}}</view>
+    </view>
+    <view class="refund_box_row">
+      <view class="refund_box_row_title">联系人:</view>
+      <view class="refund_box_row_info">{{r_username}}</view>
+    </view>
+    <view class="refund_box_row">
+      <view class="refund_box_row_title">订单编号:</view>
+      <view class="refund_box_row_info">{{orderSn}}</view>
+    </view>
+  </view>
+  <view class="refund_box mail_info">
+    <view class="refund_box_row">
+      <view class="refund_box_row_title">物流公司</view>
+      <view class="request">*</view>
+    </view>
+    <view class="refund_box_row">
+      <view class="refund_box_input">
+        <input class="refund_input" 
+        maxlength="20" 
+        type="text" 
+        disabled="{{disabled}}"
+        name="mail_company" 
+        placeholder="请输入物流公司名称" 
+        bindinput="syncMailCompany" 
+        value="{{express!=null?express:''}}"
+        />
+      </view>
+    </view>
+    <view class="refund_box_row">
+      <view class="refund_box_row_title">物流单号</view>
+      <view class="request">*</view>
+    </view>
+    <view class="refund_box_row">
+      <view class="refund_box_input">
+        <input class="refund_input" 
+        maxlength="30" 
+        type="number" 
+        name="mail" 
+        disabled="{{disabled}}"
+        placeholder="请输入物流单号" 
+        bindinput="syncMailNum" 
+        value="{{expresssn!=null?expresssn:''}}"
+        />
+      </view>
+    </view>
+  </view>
+  <view class="refund_row">退款进度</view>
+  <!--进度条-->
+  <view class="mail_list">
+    <view class="mail_wrap">
+      <view class="mail_item" wx:for="{{progressText}}" wx:key="mailList">
+        {{item}}
+      </view>
+    </view>
+  </view>
+  <!--进度条-->
+  <view class="tips">* 请勿随意修改物流信息</view>
+  <view class="btn_group">
+    <view wx:if="{{express==''}}">
+      <button class="update" bindtap="updateRefundInfo" type="primary">提交</button>
+    </view>
+    <view wx:if="{{express!=''}}">
+      <button class="update" bindtap="updateRefundInfo" type="primary">修改</button>
+    </view>
+    <button class="back" bindtap="back">取消</button>
+  </view>
+</view>

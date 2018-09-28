@@ -1,0 +1,112 @@
+<!--pages/info/info.wxml-->
+<import src='../../template/importMark/importMark.wxml' />
+<view class="slide_wrap">
+  <template is="importMark" wx:if="{{goods[0].is_imported == 1}}"></template>
+  <view class="banner">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{goods[0].carousel}}" wx:for-index="slide_img_index" wx:key="slide_img">
+        <swiper-item>
+          <image src="{{item}}" mode="aspectFill" class="slide_image" bindtap="previewImg" id="{{slide_img_index}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+
+<!--商品名称及价格-->
+<view class="goods_info">
+  <view class="goods_name">
+    {{goods[0].goods_name}}
+  </view>
+  <view class="goods_price">
+    <view class="goods_price_icon">{{'￥'+goods[0].goods_price+'元 含税(￥'+goods[0].tariff+'元)'}}</view>
+    <view class="classname">{{goods[0].country}}</view>
+  </view>
+</view>
+<!--商品名称及价格-->
+
+<!--满减信息-->
+<view class="coupon">
+  <view class="coupon_bar" bindtap="showCoupon">
+    <view class="coupon_text">
+      促销
+    </view>
+    <view class="coupon_type" wx:for="{{goods[0].couponInfo}}" wx:for-index="coupon_index" wx:key="coupon_key" wx:if="{{couponState}}">
+      {{goods[0].couponInfo[coupon_index].name}}
+    </view>
+    <view class="coupon_tips" wx:if="{{!couponState}}">
+      订单享受优惠以确认订单页展示为准
+    </view>
+    <view class="coupon_icon">
+      <i class="iconfont icon-arrowdown" wx:if="{{!couponState}}"></i>
+      <i class="iconfont icon-arrowup" wx:if="{{couponState}}"></i>
+    </view>
+  </view>
+  <view class="coupon_list" wx:if="{{!couponState}}">
+    <view class="c_list_item" wx:for="{{goods[0].couponInfo}}" wx:for-index="c_index" wx:key="c_key">
+      <view class="c_list_item_name">
+        <view class="coupon_type">
+          {{item.name}}
+        </view>
+      </view>
+      <view class="c_list_item_type_list">
+        <view class="c_list_item_desc" wx:for="{{item.desc}}" wx:key="c_type_key">
+          {{item}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--满减信息-->
+
+<!--商家信息-->
+<!--<view class="store">
+    <view class="store_logo">
+      <image src="{{}}" mode="aspectFill"></image>
+    </view>
+    <view class="store_name">
+      {{goods[0].business_name}}
+    </view>
+</view>-->
+<!--商家信息-->
+
+<!--规格参数-->
+<view class="goods_detail">
+  <view class="goods_detail_title">
+    规格参数
+  </view>
+  <view class="detail_row" wx:for="{{parm}}" wx:key="parm">
+    <view class="detail_title">{{item.name}}</view>
+    <view class="detail_value">{{item.content}}</view>
+  </view>
+</view>
+<!--规格参数-->
+
+<!--图文详情-->
+<view class="goods_detail">
+  <view class="goods_detail_title">
+    商品详情
+  </view>
+  <image wx:for="{{goods[0].intro}}" src="{{item}}" wx:key="goods_detail" mode="widthFix"></image>
+</view>
+<!--图文详情-->
+
+<!--footer-->
+<view class="footer_nav">
+  <view class="cart" bindtap="switchToCart">
+    <view class="cart_icon">
+      <view class="cart_count">{{cartCount}}</view>
+      <text class="iconfont icon-cart"></text>
+    </view>
+  </view>
+  <view class="add_cart_disable" wx:if="{{activity}}" bindtap="disableTips">
+    加入购物车
+  </view>
+  <view class="add_cart" bindtap="addCart" wx:if="{{!activity}}">
+    加入购物车
+  </view>
+  <view class="buy" bindtap="confirm">
+    立即购买
+  </view>
+</view>
+<!--footer-->

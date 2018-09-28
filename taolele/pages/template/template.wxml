@@ -1,0 +1,82 @@
+<!--商品列表模板-->
+<template name="goodItem">
+  <view class="goods-container">
+    <view class="app-good" wx:for="{{goods}}" wx:key="item.id">
+      <view class="wrap" data-id="{{item.id}}" bindtap="readDetail">
+        <view class="image">
+          <image src="{{item.pictUrl}}" mode="widthFix"></image>
+        </view>
+        <view class="text">
+          <view class="name">{{item.title}}</view>
+          <view class="sale">月销量：{{item.volume}}</view>
+          <view class="price couponInfo">
+            <text class="num text-primary">￥{{item.zkFinalPriceWap}} </text>
+            <text class="num2">￥{{item.reservePrice}}</text>
+          </view>
+
+          <view class="button">
+            <text wx:if="{{item.couponInfo && item.couponNum}}">优惠券 {{item.couponNum}}元</text>
+            <button data-id="{{item.id}}" data-clickurl="{{item.clickUrl}}" data-title="{{item.title}}" catchtap="getMyCode" size="mini">
+              <text wx:if="{{item.couponInfo}}">领取优惠</text>
+              <text wx:else>领取优惠</text>
+            </button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="app-list-empty" wx:if="{{goods.length < 1}}">
+      <image src="/images/icon_kong.png" mode="aspectFit"></image>
+  </view>
+</template>
+
+<template name="loadMore">
+  <view class="app-load-more" wx:if="{{goodData.total}}">
+      <view class="text" wx:if="{{ goodData.isLastPage }}">我是有底线的</view>
+      <!--<view class="text" wx:else>加载更多</view>-->
+  </view>
+</template>
+
+<!--弹窗-->
+<template name="codeDialog">
+  <view class="dialog dialog-kouling" wx:if="{{dialogData.dialogVisible}}">
+    <view class="dialog-mask"></view>
+    <view class="dialog-inner">
+      <view class="hd">
+
+        <text class="title" wx:if="{{dialogData.setting.mode === 'dev'}}">立即领券</text>
+        <text class="title" wx:else>{{dialogData.setting.keyName}}购买</text>
+
+        <view class="close" bindtouchend="closeDialog">
+          <image src="/images/icon_close.png"></image>
+        </view>
+      </view>
+
+      <view class="bd" wx:if="{{dialogData.setting.mode === 'dev'}}">
+        <view class="txt">
+          <view class="sms-box">
+            <input class="input" placeholder="请输入您的手机号" confirm-type="send" bindinput="onInput" bindconfirm="sendCode"/>
+            <button class="button" bindtap="sendCode" size="mini">发送</button> 
+          </view>
+        </view>
+        <view class="sms-tip">
+            优惠券兑换码将会短信发送至您的手机，请注意查收
+        </view>
+      </view>
+
+      <view class="bd" wx:else>
+        <view class="txt">
+          <text>点击复制这条信息，打开【{{dialogData.setting.appName}}】即可购买【{{dialogData.goodName}}】</text>
+          <text>{{dialogData.mycode}}</text>
+        </view>
+        <view class="btn">
+          <button bindtouchend="copyCode">点击复制{{dialogData.setting.keyName}}</button>
+        </view>
+        
+        <view class="browser">
+          <text>点击复制按钮 > 打开【{{dialogData.setting.appName}}】 > 即可下单</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,44 @@
+<!--pages/address/address.wxml-->
+<view class="wrap">
+  <form report-submit="true">
+    <view class="form_item">
+      <view class="form_title">收件人</view>
+      <input type="text" value="{{contact}}" bindinput="contentChange" />
+    </view>
+    <view class="form_item">
+      <view class="form_title">手机号码</view>
+      <input type="number" value="{{mobile}}" bindinput="mobileChange" type="number" maxlength="11"/>
+    </view>
+    <view class="form_item">
+      <view class="form_title">地区选择</view>
+      <view class="address">
+        <picker bindchange="provinceChange" value="{{provinceIndex}}" range="{{province}}" class="picker_item">
+          <view class="picker">
+            {{province[provinceIndex]}}
+            <text class="iconfont icon-arrowdown"></text>
+          </view>
+        </picker>
+        <picker bindchange="cityChange" value="{{cityIndex}}" range="{{city}}" class="picker_item">
+          <view class="picker">
+            {{city[cityIndex]}}
+            <text class="iconfont icon-arrowdown"></text>
+          </view>
+        </picker>
+        <picker bindchange="areaChange" value="{{areaIndex}}" range="{{area}}" class="picker_item">
+          <view class="picker">
+            {{area[areaIndex]}}
+            <text class="iconfont icon-arrowdown"></text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="form_item">
+      <textarea placeholder="请输入详细地址，不少于5个字" placeholder-style="color:#999999;" value="{{detail}}" bindinput="detailChange" />
+    </view>
+    <view class="btn_box">
+      <button class="update" bindtap="address_save" type="primary">保存地址</button>
+      <button class="cancel" bindtap="goBack">放弃修改</button>
+    </view>
+  </form>
+</view>
+

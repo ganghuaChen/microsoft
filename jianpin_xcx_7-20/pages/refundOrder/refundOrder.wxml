@@ -1,0 +1,54 @@
+<view class="wrapper">
+  <view class="ordew_item" wx:for="{{order}}" wx:key="order_item">
+    <view class="order_num">
+      <view class="order_sn">{{'订单编号: '+item.order}}</view>
+      <view class="order_status">{{item.r_status>2?'已退款':item.r_status>1?'未通过审核':item.r_status>0?'通过审核':'待审核'}}</view>
+    </view>
+    <view bindtap="detailNav" data-ordersn="{{item.order}}">
+    <view class="goods_item_box" wx:for="{{item.goods}}" wx:key="goods"> 
+      <view class="goods_item" wx:for="{{item}}" wx:key="goods_item">
+        <view class="goods_left">
+          <image src="{{item.goods_img}}"></image>
+        </view>
+        <view class="goods_right">
+          <view class="goods_name">
+            <view class="goods_name_text">
+              {{item.business_name+" "+item.goods_name}}
+            </view>
+            <view class="goods_count">
+              <text>{{'×'+item.num}}</text>
+            </view>
+          </view>
+          <view class="goods_price">
+            {{"￥"+item.goodprice}}
+          </view>
+        </view>
+      </view>
+    </view>
+    </view>
+    <view class="detail">
+      <view class="refund_price">
+        {{'退款金额：￥'+item.r_price}}
+      </view>
+      <view class="btn_group">
+         <view class="btn" 
+          bindtap="refundInfo" 
+          data-ordersn="{{item.order}}"
+          wx:if="{{item.returned == false}}" >
+            退货信息
+          </view>
+          <view class="btn" bindtap="detailNav" data-ordersn="{{item.order}}">
+            订单详情
+          </view>
+      </view>
+    </view>
+  </view>
+  <view class="empty_tips" wx:if="{{empty}}">
+    <view class="empty_icon">
+      <i class="iconfont icon-search"></i>
+    </view>
+    <view class="empty_text">
+      <text>您没有售后订单</text>
+    </view>
+  </view>
+</view>

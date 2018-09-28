@@ -1,0 +1,18 @@
+/* pages/commonProblem/commonProblem.wxss */
+page{
+  background: #eee;
+}
+.wrap{
+  font-size: 32rpx;
+  color: #999;
+  padding: 20rpx 32rpx;
+  background: #fff;
+  margin: 20rpx 0;
+  line-height: 2
+  }
+  .problem{
+    color: #515151;
+  }
+  .daan{
+    color: #ff4965
+  }

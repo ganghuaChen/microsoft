@@ -1,0 +1,11 @@
+/* pages/player/player.wxss */
+.page-player{}
+.page-player .cover{}
+.page-player .cover .state{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 20px;
+}

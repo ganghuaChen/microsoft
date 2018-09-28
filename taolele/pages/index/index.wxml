@@ -1,0 +1,23 @@
+<view class="page-home">
+  <view class="body">
+    <view class="app-search">
+      <view class="wrap">
+        <input class="search-input" placeholder="搜索超级白菜超级实惠的商品" confirm-type="search" bindconfirm="searchGood"/>
+      </view>
+    </view>
+
+    <view class="app-banner" wx:if="{{!isSearch}}">
+       <navigator url="/pages/top20/index" open-type="switchTab" class="item">
+          <image mode="widthFix" src="/images/icon_img_1.png"></image>
+       </navigator>
+       <navigator url="/pages/category/index" open-type="switchTab" class="item">
+          <image mode="widthFix" src="/images/icon_img_2.png"></image>
+       </navigator>
+    </view>
+
+    <import src="../template/template.wxml"></import>
+    <template is="goodItem" data="{{goods}}"></template>
+    <template is="loadMore" data="{{goodData}}"></template>
+    <template is="codeDialog" data="{{dialogData}}"></template>
+  </view>
+</view>

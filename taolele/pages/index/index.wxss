@@ -1,0 +1,19 @@
+.app-banner{
+  display: flex;
+  padding: 3vw;
+  background-color: #f7f7f7;
+}
+.app-banner .item{
+  width: 50vw;
+  overflow: hidden;
+  margin-right: 3vw;
+  border-radius: 10rpx;
+  box-shadow: 0 0 10rpx 1rpx rgba(0, 0, 0, 0.1);
+}
+.app-banner .item:last-child{
+  margin-right: 0;
+}
+.app-banner .item image{
+  display: block;
+  width: 100%;
+}

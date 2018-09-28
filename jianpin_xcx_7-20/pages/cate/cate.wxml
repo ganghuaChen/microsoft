@@ -1,0 +1,33 @@
+<!--pages/cate/cate.wxml-->
+<!--<import src='../../template/importMark/importMark.wxml'/>-->
+<!--搜索区域-->
+<view class="search">
+  <navigator url="../search/search">
+    <view class="search-bar">
+      <view class="search_info">
+        <text class="iconfont icon-search"></text>搜索尖品商品
+      </view>
+    </view>
+  </navigator>
+</view>
+<!--搜索区域-->
+<view class="sider_bar">
+  <scroll-view scroll-y="true">
+    <view class="cate_item" wx:for="{{cate}}" wx:key="cate_item">
+        <view class="cate_title {{item.active}}"  bindtap="selectCate" data-cateid="{{item.id}}" id="{{index}}">{{item.name}}</view>
+    </view>
+  </scroll-view>
+</view>
+<view class="content_box">
+  <scroll-view scroll-y="true">
+    <view class="goods_item" wx:for="{{goods}}" wx:for-index="goods"  wx:key="goods_item">
+      <navigator url="../info/info?goodsId={{item.id}}">
+      <template wx:if="{{item.is_imported == 1}}" is="importMark"></template>
+        <image src="{{item.thumb}}" class="goods_item_img" mode="scaleToFill"></image>
+        <view class="goods_desc" style="text-align:left;padding:0 10rpx">
+          <text class="goods_item_name">{{item.goods_name}}</text>
+        </view>
+      </navigator>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,90 @@
+<!--pages/cart/cart.wxml-->
+
+
+<!--商品秒杀-->
+<!--<view class="activity-name">尖品秒杀</view>-->
+<view class="head">
+  <view class="time-bar">
+    <view id="{{index}}" data-state="{{timeList[index]['active']}}" bindtap="showGoods" wx:for="{{timeList}}" wx:index="index" wx:key="shop-time" class="shop-time {{selected == index ? 'active':''}}">{{timeList[index]["time"]}}</view>
+  </view>
+  <view class="progress-bar">
+    <view class="progress-item {{progressList[index].state}}" wx:key="progress-bar" wx:for="{{progressList}}">{{progressList[index].desc}}</view>
+  </view>
+</view>
+<view class="goods" wx:key="goods" wx:for="5" wx:if="showPage == index">
+  <!--过渡动画-->
+  <view class="goods-loading-mask" wx:if="{{!load}}">
+    <view class="loading"></view>
+  </view>
+  <!--过渡动画-->
+
+  <!--根据时间显示秒杀状态-->
+  <view class="goods-state" wx:if="{{saleState == false}}">本场已结束</view>
+  <view class="goods-state" wx:if="{{saleState == true}}">距本场结束</view>
+  <view class="goods-state" wx:if="{{saleState == 'wait'}}">距本场开始</view>
+  <!--根据时间显示秒杀状态-->
+
+  <!--倒计时-->
+  <view class="time_wrap">
+    <text class="time_box" style="background-image:url({{timer_bg}})">{{hour1}}</text>
+    <text class="time_box" style="background-image:url({{timer_bg}})">{{hour2}}</text>:
+    <text class="time_box" style="background-image:url({{timer_bg}})">{{mintue1}}</text>
+    <text class="time_box" style="background-image:url({{timer_bg}})">{{mintue2}}</text>:
+    <text class="time_box" style="background-image:url({{timer_bg}})">{{second1}}</text>
+    <text class="time_box" style="background-image:url({{timer_bg}})">{{second2}}</text>
+  </view>
+  <!--倒计时-->
+
+  <!--商品列表-->
+  <view class="goods_list">
+    <view class="goods_list_navigator" wx:key="goods_list" wx:for="{{goodsList[current]}}" wx:for-index="goodsIndex" id="{{showPage}}" data-goodsId="{{item.id}}" bindtap="goodsNav">
+      <view class="goods_item">
+        <view class="goods_item_left">
+          <image src="{{item.thumb}}" mode="aspectFill"></image>
+        </view>
+        <view class="goods_item_right">
+          <view class="goods_item_name">
+            <text class="goods_item_title">{{item.goods_name}}</text>
+          </view>
+          <view class="goods_item_desc">
+            <text class="goods_item_desc">{{item.des}}</text>
+          </view>
+          <view class="progress" style="margin-top:auto;color:#ff4965;">
+            <progress percent="{{item[showPage>2?showPage>3?'percent18':'percent16':showPage>1?'percent14':showPage>0?'percent12':'percent10']}}" active color="#ff4965" show-info/>
+          </view>
+          <view class="goods_item_name goods_item_price">
+            <view class="price_box">
+              <view class="price_box_item">
+                <text class="current_price">{{"￥"+item.seckill_price}}</text>
+              </view>
+              <view class="price_box_item">
+                <text class="history_price">￥{{item.goods_price}}</text>
+              </view>
+            </view>
+            <view class="buy {{progressList[showPage].desc=='已结束'?'finish':''}}">
+              <view class="saled_count">{{"已售"+(item.virtu_num+item.buy_num)+"件"}}</view>
+              <view class="buy_text {{progressList[showPage].desc=='已结束'?'finish':''}}">立即抢</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--商品列表-->
+
+  <!--懒加载到底部时显示-->
+  <view class="footer">
+    <view class="page_ending">无更多商品</view>
+  </view>
+  <!--懒加载到底部时显示-->
+</view>
+
+<!--商品秒杀-->
+<view class="empty_tips" wx:if="{{!activityFlag}}">
+  <view class="empty_icon">
+    <text class="iconfont icon-shangpintianchongxiaoguo"></text>
+  </view>
+  <view class="empty_text">
+    <text>当天暂无秒杀商品</text>
+  </view>
+</view>

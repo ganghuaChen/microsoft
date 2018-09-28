@@ -1,0 +1,150 @@
+@color1: #6da3d9;
+@color2: #ddb878;
+@color3: #fda15a;
+.page-coupon-list{
+    padding: 30rpx 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: #f7f8f9;
+    .coupon-item{
+        display: flex;
+        align-items: center;
+        margin:0 30rpx 30rpx;
+        font-size: 14px;
+        background-color: #fff;
+        border-radius: 15rpx;
+        overflow: hidden;
+        .left{
+            flex: 1;
+            padding: 10rpx 30rpx;
+            .name-info{
+                padding: 10rpx 0;
+                line-height: 1;
+                .scope{
+                    display: inline-block;
+                    padding: 10rpx;
+                    vertical-align: middle;
+                    margin-top: -4rpx;
+                    color: #fff;
+                    background-color: @color1;
+                    border-radius: 4rpx;
+                }
+            }
+            .price-info{
+                color: @color1;
+                padding-bottom: 10rpx;
+                border-bottom: 1px solid #eee;
+                .num{
+                    font-size: 240%;
+                    font-weight: bold;
+                }
+            }
+            .note-info{
+                padding: 15rpx 0 5rpx;
+                font-size: 26rpx;
+                color: #999;
+                .iconfont{
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-size: 26rpx;
+                    color: #999;
+                }
+            }
+        }
+        .right{
+            box-sizing: border-box;
+            padding: 38rpx 0;
+            position: relative;
+            text-align: center;
+            width: 32.5%;
+            background-color: @color1;
+            &:after{
+                content: '';
+                position: absolute;
+                top: 20rpx;
+                bottom: 20rpx;
+                border-right: 16rpx dotted #f7f8f9;
+                right: -8rpx;
+            }
+            .remain{
+                font-size: 26rpx;
+                color: #efefef;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                .num{
+                    font-size: 150%;
+                    color: #fff;
+                }
+            }
+            .button{
+                margin: 20rpx 30rpx 0;
+                padding: 10rpx;
+                color: @color1;
+                background-color: #fff;
+                border-radius: 30rpx;
+            }
+        }
+        &.coupon-A{
+            .left{
+                .name-info{
+                    .scope{background-color:@color1;}
+                }
+                .price-info{
+                    color: @color1;
+                }
+            }
+            .right{
+                background-color: @color1;
+                .button{
+                    color: @color1;
+                }
+            }
+        }
+        &.coupon-S{
+            .left{
+                .name-info{
+                    .scope{background-color:@color2;}
+                }
+                .price-info{
+                    color: @color2;
+                }
+            }
+            .right{
+                background-color: @color2;
+                .button{
+                    color: @color2;
+                }
+            }
+        }
+        &.coupon-O{
+            .left{
+                .name-info{
+                    .scope{background-color:@color3;}
+                }
+                .price-info{
+                    color: @color3;
+                }
+            }
+            .right{
+                background-color: @color3;
+                .button{
+                    color: @color3;
+                }
+            }
+        }
+    }
+
+    .empty-coupon{
+        padding: 160rpx 0;
+        text-align: center;
+        color: #999;
+        .image{
+            display: block;
+            margin: 30rpx auto;
+            width: 300rpx;
+            height: 192rpx;
+        }
+    }
+    
+}

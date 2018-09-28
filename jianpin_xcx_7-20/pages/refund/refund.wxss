@@ -1,0 +1,80 @@
+/* pages/refund/refund.wxss */
+.warpper .refund_title{
+  background-color: #fff;
+  font-size: 14px;
+  padding: 15rpx 20rpx;
+}
+.warpper .refund_box{
+  margin: 0 20rpx;
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
+}
+.warpper .order_item_goods_detail{
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  padding: 20rpx;
+}
+.warpper .order_item_goods_detail .goods_item{
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+}
+.warpper .order_item_goods_detail .goods_item .goods_left{
+  margin-right: 10rpx;
+  width: 152rpx;
+  height: 152rpx;
+}
+.warpper .order_item_goods_detail .goods_item .goods_left image{
+  width: 152rpx;
+  height: 152rpx;
+}
+.warpper .order_item_goods_detail .goods_item .goods_right{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.warpper .order_item_goods_detail .goods_item .goods_right .goods_desc{
+  display: flex;
+  justify-content: space-between;
+}
+.warpper .refund_price{
+  font-size: 14px;
+  border-radius: 0 0 4px 4px;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+.warpper .refund_price .refund_price_row{
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+  justify-content: space-between;
+}
+.warpper .refund_price .refund_price_row .refund_price_value{
+  color: #ff4965;
+}
+.warpper .refund_reason{
+  background-color: #f5f5f5;
+  margin: 20rpx;
+  padding: 15rpx;
+  border-radius: 10rpx;
+}
+.warpper .refund_reason .refund_reason_textarea{
+  width: 100%;
+  font-size: 15px;
+}
+.warpper .btn_box{
+  box-sizing: border-box;
+  padding: 0 20rpx 20px;
+}
+.warpper .btn_box .update{
+  background-color: #ff4965;
+  margin-bottom: 10rpx;
+  line-height: 35px;
+  height: 35px;
+}
+.warpper .btn_box .cancel{
+  line-height: 35px;
+  height: 35px;
+}

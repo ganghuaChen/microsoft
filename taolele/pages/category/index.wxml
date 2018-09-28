@@ -1,0 +1,13 @@
+<view class="page-category">
+  <scroll-view scroll-y class="body">
+    <view class="app-category">
+      <view class="item" wx:for="{{categories}}" wx:key="index">
+        <navigator class="button" url="/pages/categoryItem/index?categoryid={{item.favoritesId}}&title={{item.favoritesTitle}}">
+          <image wx:if="{{icons[item.favoritesTitle]}}" src="{{icons[item.favoritesTitle]}}" mode="widthFix"></image>
+          <image wx:else src="{{defaultIcon}}" mode="widthFix"></image>
+          <text>{{item.favoritesTitle}}</text>
+        </navigator>
+      </view>
+    </view>
+  </scroll-view>
+</view>

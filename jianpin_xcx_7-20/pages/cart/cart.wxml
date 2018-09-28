@@ -1,0 +1,95 @@
+<!--pages/cart/cart.wxml-->
+<import src='../../template/importMark/importMark.wxml'/>
+<scroll-view class="main" 
+bindtouchstart="checkActionS" 
+bindtouchend="checkActionE" 
+scroll-y
+ wx:if="{{cart}}">
+ <view>
+    <view class="cart_item" 
+    wx:for="{{cart}}" 
+    wx:key="cart" 
+    wx:for-index="cart_index">
+      <view class="cart_item_head">
+        <view class="goods_selector goods_selector_active" bindtap="select" id="{{cart_index}}">
+          <i class="goods_selector_icon iconfont icon-success" wx:if="{{item.selectedFlag == true}}"></i>
+          <i class="goods_selector_icon iconfont icon-circle" wx:if="{{item.selectedFlag != true}}"></i>
+        </view>
+        <view class="store">
+          <i class="store_icon iconfont icon-store"></i>
+          {{item.storeName}}
+        </view>
+      </view>
+      <!--显示层-->
+      <view class="show_layer" 
+      bindtouchstart="touchS" 
+      catchtouchend="touchE"
+      id="{{cart_index}}">
+          <view class="goods_info {{item.selected}}">
+            <view class="goods_left" data-goodsid="{{item.goodsId}}" bindtap="infoNav">
+              <view class="goods_img">
+                <image src="{{item.imgSrc}}" mode="aspectFill"></image>
+              </view>
+            </view>
+            <view class="goods_right">
+              <template wx:if="{{item.import == 1}}" is="importMark"></template>
+              <view class="goods_name">{{item.title}}</view>
+              <view class="goods_price_box">
+                <view class="goods_price">{{"￥"+item.price}}</view>
+                <view class="count_selector">
+                  <view class="minus" catchtap="cart_minus" data-goodsId="{{item.goodsId}}">-</view>
+                  <view class="number">{{item.count}}</view>
+                  <view class="add" catchtap="cart_add" data-goodsId="{{item.goodsId}}">+</view>
+                </view>
+              </view>
+            </view>
+            <!--删除按钮层-->
+            <view class="del_layer {{item.selected}}" catchtap="del" id="{{cart_index}}">删除</view>
+          </view> 
+      </view>
+    </view>
+
+    <view class="price_calc" wx:if="{{cart.length > 0}}">
+      <view class="price_item">
+        <view class="price_title">小程序专享价</view>
+        <view class="price_num">{{"￥"+rawPrice+'(含税'+tariff+')'}}</view>
+      </view>
+      <view class="price_item">
+        <view class="price_title">优惠折扣</view>
+        <view class="price_num">{{"￥"+coupon}}</view>
+      </view>
+      <view class="price_item">
+        <view class="price_title">商品实付</view>
+        <view class="price_num">{{"￥"+goodsPrice}}</view>
+      </view>
+      <view class="price_item">
+        <view class="price_title">运费</view>
+        <view class="price_num">{{"￥"+mailCost}}</view>
+      </view>
+      <view class="final_price">
+        <text class="final_price_text">合计</text>
+        <text class="final_price_num">{{"￥"+finalPrice}}</text>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>
+  <view class="footer_nav"  wx:if="{{cart.length > 0}}">
+    <view class="goods_selector goods_selector_active" bindtap="selectAll">
+      <i class="goods_selector_icon iconfont icon-success" wx:if="{{selectAll == true}}"></i>
+      <i class="goods_selector_icon iconfont icon-circle" wx:if="{{selectAll != true}}"></i>
+    </view>
+    全选
+    <view class="total_price">
+      {{totalPrice}}
+    </view>
+    <view class="pay_btn" bindtap="goPay">
+        去结算<i class="iconfont icon-sanjiaoxing pay_btn_arrow"></i>
+    </view>
+  </view>
+<view class="empty_tips" wx:if="{{cart.length <= 0}}">
+  <view class="iconfont icon-cart"></view>
+  <view class="empty_text">
+    <text>您的购物车是空的</text>
+  </view>
+</view>

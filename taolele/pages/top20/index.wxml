@@ -1,0 +1,14 @@
+<view class="page-home">
+  <view class="body">
+    <view class="app-search">
+      <view class="wrap">
+        <input class="search-input" placeholder="搜索超级白菜超级实惠的商品" confirm-type="search" bindconfirm="searchGood"/>
+      </view>
+    </view>
+
+    <import src="../template/template.wxml"></import>
+    <template is="goodItem" data="{{goods}}"></template>
+    <template is="loadMore" data="{{goodData}}"></template>
+    <template is="codeDialog" data="{{dialogData}}"></template>
+  </view>
+</view>

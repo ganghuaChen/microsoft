@@ -1,0 +1,70 @@
+<!--pages/identity/identity.wxml-->
+<view class="wrapper">
+  <view class="identity_blank">身份信息</view>
+  <view class="identity_input">
+    <input class="identity_input_row" 
+    type="text"
+    bindinput="syncName"
+    placeholder="您的真实姓名" 
+    maxlength="6"/>
+  </view>
+  <view class="identity_input">
+    <input class="identity_input_row" 
+    type="number"
+    bindinput="syncIdNum"
+    placeholder="您的真实身份证号码（将加密处理）" 
+    maxlength="18" />
+  </view>
+  <view class="identity_blank">
+    <view class="identity_blank_item">身份证正反面照片</view>
+  </view>
+  <view class="identity_box">
+    <view class="identity_tips">
+      <text class="iconfont icon-light"></text>温馨提示：请上传原始比例的身份证正面，请勿裁剪涂改，保证身份证信息清晰显示，否则无法通过审核
+    </view>
+  </view>
+  <view class="identity_img_box">
+    <view class="identity_img"
+    bindtap="chooseImg"
+    data-img="frontImg">
+      <view class="add" wx:if="{{!frontImgTemp}}">
+        <text class="iconfont icon-add"></text>
+      </view>
+      <view class="img_box" wx:if="{{frontImgTemp}}">
+        <image src="{{frontImgTemp}}" mode="aspectFill"></image>
+      </view>
+      <view class="close_btn" 
+      wx:if="{{frontImgTemp}}"
+      data-img="frontImg"
+      catchtap="delImg">×</view>
+      <view class="front_tips">正面照片</view>
+    </view>
+    <!--<view class="identity_img"
+    bindtap="chooseImg"
+    data-img="backImg">
+      <view class="add" wx:if="{{!backImgTemp}}">
+        <text class="iconfont icon-add"></text>
+      </view>
+      <view class="img_box" wx:if="{{backImgTemp}}">
+        <image src="{{backImgTemp}}" mode="aspectFill"></image>
+      </view>
+      <view class="close_btn" 
+      wx:if="{{backImgTemp}}"
+      data-img="backImg"
+      catchtap="delImg">×</view>
+      <view class="back_tips">反面照片</view>
+    </view>-->
+  </view>
+  <view class="foot_tips">
+    <view class="tips_title">
+      为什么要进行实名认证？
+    </view>
+    <view class="section">
+      根据海关规定，购买跨境商品需要办理清关手续，请您配合进行实名认证，以确保您购买的商品顺利通过海关检查。（尖品承诺所传身份证明只用于办理跨境商品的清关手续，不作他途使用，其他任何人均无法查看。）
+    </view>
+    <view class="section">
+      实名认证的规则：购买跨境商品需填写真实姓名及身份证号码，部分商品下单时需提供收货人的实名信息（含身份证照片），具体请以下单时的提示为准。
+    </view>
+  </view>
+  <view class="update" bindtap="update">保存</view>
+</view>

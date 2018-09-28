@@ -1,0 +1,343 @@
+/* pages/cart/cart.wxss */
+
+@import "../../style/animation/loading.wxss";
+@import "../../style/iconfont/iconfont.wxss";
+page{
+  font-family: "microsoft yahei";
+  border-top: 1px #eee solid;
+  padding-top: 130rpx;
+}
+.head{
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 10rpx;
+  width: 100vw;
+  background-color: #fff;
+  z-index: 999;
+  padding-bottom: 10rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.activity-name {
+  margin-top: 10rpx;
+  padding-top: 34rpx;
+  padding-bottom: 17px;
+  font-size: 16px;
+  text-align: center;
+  color: #666;
+  background-color: #fff;
+}
+
+.time-bar {
+  font-size: 1.5rem;
+  width: 100vw;
+  padding: 0 20rpx;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-around;
+  background-color: #fff;
+}
+
+.time-bar .shop-time {
+  position: relative;
+  z-index: 1;
+  background-color: #f8f8f8;
+  color: #666;
+  font-size: 11pt;
+  line-height: 66rpx;
+  border-radius: 24px;
+  width: 114rpx;
+  height: 66rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/*.time-bar .shop-time::after {
+  content: "";
+  position: absolute;
+  transform: translate3d(100%, -50%, 0);
+  top: 50%;
+  right: 0;
+  z-index: 1;
+  width: 35rpx;
+  height: 8rpx;
+  background-color: #f7f6f6;
+}*/
+
+/*.time-bar .shop-time:last-child::after {
+  content: "";
+  width: 0;
+}*/
+
+.time-bar .active {
+  color: #fff;
+  background-color: #ff4965;
+}
+
+.progress-bar {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0 20rpx;
+  padding-top: 12rpx;
+}
+
+.progress-bar .progress-item {
+  color: #666;
+  font-size: 9pt;
+  line-height: 16px;
+  width: 114rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.goods {
+  background-color: #fff;
+  position: relative;
+}
+
+.goods .time_wrap {
+  text-align: center;
+  margin-bottom: 26rpx;
+}
+
+.goods .time_box {
+  padding: 0 6rpx;
+  font-size: 16px;
+  color: #fff;
+  background-position: 0 0 ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  line-height: 21pt;
+}
+
+.goods .time_box:nth-child(2n-1) {
+  margin-right: 2rpx;
+}
+
+.goods .goods-loading-mask {
+  width: 100vw;
+  line-height: 500rpx;
+  height: 500vh;
+  padding-bottom: 500rpx;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  z-index: 9;
+  text-align: center;
+}
+
+.goods .goods-loading-mask .loading {
+  display: inline-block;
+  animation: loading 1s infinite linear;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  width: 100rpx;
+  height: 100rpx;
+  border: 4rpx solid #ff4965;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+}
+
+.goods .goods-state {
+  text-align: center;
+  padding-top: 30rpx;
+  font-size: 12pt;
+  color: #666;
+}
+
+.goods .goods_list {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30rpx;
+}
+
+.goods .goods_list .goods_item{
+  border-bottom: 1px solid #e5e5e5;
+  padding: 25rpx 5rpx;
+}
+
+.goods .goods_list .goods_item .goods_list_navigator {
+  width: 220rpx;
+  height: 220rpx;
+}
+
+.goods .goods_list .goods_item .goods_item_left image {
+  width: 220rpx;
+  height: 220rpx;
+}
+
+.goods .goods_list .goods_item {
+  display: flex;
+}
+
+.goods .goods_list .goods_item .goods_item_left {
+  padding-right: 20rpx;
+  width: 220rpx;
+  height: 220rpx;
+}
+
+.goods .goods_list .goods_item .goods_item_right {
+  display: flex;
+  flex-direction: column;
+  height: 220rpx;
+  flex: 1;
+}
+
+.goods .goods_list .goods_item .goods_item_right .goods_item_name {
+  font-size: 11pt;
+  line-height:11pt;
+  width: 440rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.goods .goods_list .goods_item .goods_item_right .goods_item_desc{
+  margin-top: 5rpx;
+  color: #888888;
+  font-size: 10pt;
+}
+
+.goods .goods_list .goods_item .goods_item_right .goods_item_tag{
+  margin-top: 4px;
+  display: flex;
+  flex-direction: row;
+}
+.goods .goods_list .goods_item .goods_item_right .goods_item_tag .item_tag{
+  border: 1px solid #ff4a66;
+  border-radius: 3px;
+  color: #ff4a66;
+  font-size: 10px;
+  line-height: 14px;
+  padding: 1px 5rpx;
+  margin-right: 10rpx;
+}
+
+.goods .goods_list .goods_item .goods_item_right .price_box {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+}
+.goods .goods_list .goods_item .goods_item_right .goods_item_price {
+  display: flex;
+  flex-direction: row;
+  margin-top: auto;
+  justify-content: space-between;
+}
+
+.goods .goods_list .goods_item .goods_item_right .price_box .price_code {
+  font-size: 9pt;
+  color: #ff4a66;
+}
+
+.goods .goods_list .goods_item .goods_item_right .price_box_item {
+  color: #ff4a66;
+  margin-right: 22rpx;
+  font-size: 13pt;
+}
+
+.goods .goods_list .goods_item .goods_item_right .history_price {
+  font-size: 8pt;
+  color: #9a9a9a;
+  text-decoration: line-through;
+}
+
+.goods .goods_list .goods_item .buy-navigator {
+  width: 154rpx;
+  margin-top: auto;
+}
+
+.buy {
+  font-size: 12px;
+  width: 154rpx;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #fd8d97;
+}
+.buy.finish{
+  border: 1px solid #ccc;
+}
+.buy.finish .saled_count{
+  color: #ccc;
+}
+.buy .saled_count{
+  color: #ff4a66;
+}
+.buy .buy_text{
+  background-color: #ff4a66;
+  color: #fff;
+}
+.buy .buy_text.finish{
+  background-color: #ccc;
+}
+.footer {
+  text-align: center;
+  padding-bottom: 22rpx;
+}
+
+.page_ending {
+  position: relative;
+  font-size: 11pt;
+  color: #a0a0a0;
+  display: inline-block;
+}
+
+.page_ending::before {
+  position: absolute;
+  left: -32rpx;
+  transform: translateX(-100%);
+  top: 50%;
+  content: "";
+  width: 152rpx;
+  height: 1rpx;
+  background-color: #a0a0a0;
+}
+
+.page_ending::after {
+  position: absolute;
+  top: 50%;
+  transform: translateX(100%);
+  right: -32rpx;
+  content: "";
+  width: 152rpx;
+  height: 1rpx;
+  background-color: #a0a0a0;
+}
+
+/*无商品时显示*/
+.empty_tips{
+  position: fixed;
+  width: 100vw;
+  background-color: #f5f5f5;
+  height: 100vh;
+  top: 0;
+  left: 50%;
+  padding-top: 30vh;
+  transform: translateX(-50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 9999
+}
+.empty_tips .empty_icon{
+  border: 1px #eeeeee solid;
+  border-radius: 50%;
+  width: 120rpx;
+  height: 120rpx;
+  padding: 20rpx;
+  text-align: center
+}
+.empty_tips .empty_icon .iconfont{
+  font-size: 35px;
+  line-height: 55px;
+  color: #fd8d97
+}
+.empty_tips .empty_text{
+  margin-top: 50rpx;
+  font-size: 13px;
+}

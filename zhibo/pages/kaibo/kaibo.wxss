@@ -1,0 +1,46 @@
+/* pages/kaibo/kaibo.wxss */
+.page-kaibo{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.page-kaibo .bd{
+  line-height: 2;
+  font-size: 15px;
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.page-kaibo .bd .thumb {
+  position: relative;
+}
+.page-kaibo .bd .thumb image{
+  width: 100%;
+}
+.page-kaibo .bd .text{
+  margin-top: 10rpx;
+  padding: 0 30rpx;
+}
+.page-kaibo .bd .text .row{
+  display: flex;
+}
+.page-kaibo .bd .text .row .label{
+  display: block;
+  color: #333;
+}
+.page-kaibo .bd .text .row .value{
+  display: block;
+  flex: 1;
+  color: #666;
+}
+.page-kaibo .ft{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 -1px 1px rgba(0,0,0,.1);
+
+  font-size: 15px;
+}

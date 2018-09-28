@@ -1,0 +1,111 @@
+<!--pages/mail/mail.wxml-->
+<view class="address">
+  <view class="address_icon">
+    <text class="iconfont icon-address"></text>
+  </view>
+  <view class="address_info">
+    <view class="addressee">
+      <view class="addressee_name">收件人：{{orderInfo.name}}</view>
+      <view class="addressee_phone">{{orderInfo.tel}}</view>
+    </view>
+    <view class="current_address">收货地址：{{orderInfo.address}}</view>
+  </view>
+</view>
+
+<view class="customer" wx:if="{{orderInfo.customs==2}}">
+  <view class="tips">
+    <text class="iconfont icon-warning"></text> 由于清关失败，订单已退款。
+  </view>
+</view>
+<view class="order_item">
+  <view class="order_item_header">
+    <view class="store">
+      {{'订单编号：'+orderInfo.order}}
+    </view>
+    <view class="status">{{orderInfo.status}}</view>
+  </view>
+  <view class="order_item_goods" wx:for="{{orderInfo.goods}}" wx:key="goods_item">
+    <view class="order_item_goods_detail" wx:for="{{item}}" wx:key="goods_item_detail">
+      <view class="goods_img">
+        <image src="{{item.goods_img}}" mode="aspectFit"></image>
+      </view>
+      <view class="goods_desc">
+        {{item.goods_name}}
+      </view>
+      <view class="goods_price">
+        {{"￥"+item.goodprice}}
+      </view>
+    </view>
+  </view>
+  <view class="order_item_price">
+    {{'共'+orderInfo.count+'件商品 合计：￥'}}
+    <text class="final_price">{{orderInfo.price}}</text>
+    <text>{{"(含税"+orderInfo.o_tariff+"元)"}}</text>
+  </view>
+  <view wx:if="{{orderInfo.couponName != null}}">
+    <view style="text-align:left;font-size:12px;padding:10rpx 20rpx;display:flex;justify-content:space-between">
+      <view class="classname">{{'使用的优惠卷:'}}</view> <view class="classname">{{orderInfo.couponName}}</view>
+    </view>
+  </view>
+
+  <view style="text-align:left;font-size:12px;padding:10rpx 20rpx;display:flex;justify-content:space-between">
+    <view class="classname">{{'优惠金额:'}}</view> <view class="classname">{{'￥'+orderInfo.discount+'元'}}</view>
+  </view>
+  <view style="text-align:left;font-size:12px;padding:10rpx 20rpx;display:flex;justify-content:space-between">
+    <view class="classname">{{'邮费金额:'}}</view>
+    <view class="classname">{{'￥'+orderInfo.o_mail+'元'}}</view>
+  </view>
+  <view style="text-align:left;font-size:12px;padding:10rpx 20rpx;display:flex;justify-content:space-between">
+    <view class="classname">{{'实际支付:'}}</view>
+    <view class="classname">{{'￥'+orderInfo.totalfee+'元'}}</view>
+  </view>
+  <view class="identity_info">
+    <picker range="{{identityList}}" value="{{identityIndex}}" wx:if="{{identityList.length > 0}}" bindchange="changeIdentity">
+      <view class="identity_info_box">
+        <view class="identityIndex_value">
+          当前清关信息：{{identityList[identityIndex]}}
+        </view>
+        <view class="more">
+          <text class="iconfont icon-arrowright"></text>
+        </view>
+      </view>
+    </picker>
+    <view class="identity_tips" wx:if="{{identityList.length <= 0}}">请填写清关信息</view>
+  </view>
+</view>
+
+<view class="order_info">
+  <view class="order_code">订单编号：{{orderInfo.order}}</view>
+  <view class="order_time">创建时间：{{orderInfo.createtime}}</view>
+</view>
+<view wx:if="{{orderInfo.status != '取消' && orderInfo.status != '待发货' && orderInfo.status != '待付款' && orderInfo.customs!=2 && orderInfo.express != null && orderInfo.expresssn != null}}">
+  <view class="mail_list">
+    <view wx:if="{{mailList.length <= 0||mailList == undefined}}" style="color:#ff4965;padding-bottom:20rpx;font-size:14px">
+      物流信息加载失败！
+    </view>
+    <view class="mail_wrap" wx:if="{{mailList.length > 0}}">
+      <view class="mail_item" wx:for="{{mailList}}" wx:key="mailList">
+        {{mailList[index].context}}
+        <view class="mail_time">
+          {{mailList[index].time}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{orderInfo.r_express != null && orderInfo.r_expresssn != null}}">
+  <view style="padding:20rpx;font-size:14px;color:#333">退货信息</view>
+  <view class="mail_list">
+    <view wx:if="{{mailList.length <= 0||mailList == undefined}}" style="color:#ff4965;padding-bottom:20rpx;font-size:14px">
+      物流信息加载失败！
+    </view>
+    <view class="mail_wrap" wx:if="{{mailList.length > 0}}">
+      <view class="mail_item" wx:for="{{r_mailList}}" wx:key="mailList">
+        {{item.context}}
+        <view class="mail_time">
+          {{item.time}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

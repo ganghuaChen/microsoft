@@ -1,0 +1,127 @@
+<!--pages/confirmOrder/confirmOrder.wxml-->
+<view class="nav_header">
+  <view bindtap="detailNav" data-id="{{aid}}" class="address_nav">
+    <view class="address_text" wx:if="{{address=='nullnullnull'}}">请填写收货地址</view>
+    <view class="address_text" wx:if="{{address!='nullnullnull'}}">{{address}}</view>
+    <view class="more">
+      <text class="iconfont icon-arrowright"></text>
+    </view>
+  </view>
+  <view class="address_border_bottom">
+    <view class="address_border_bottom_item"></view>
+    <view class="address_border_bottom_item"></view>
+    <view class="address_border_bottom_item"></view>
+    <view class="address_border_bottom_item"></view>
+    <view class="address_border_bottom_item"></view>
+    <view class="address_border_bottom_item"></view>
+    <view class="address_border_bottom_item"></view>
+    <view class="address_border_bottom_item"></view>
+    <view class="address_border_bottom_item"></view>
+    <view class="address_border_bottom_item"></view>
+    <view class="address_border_bottom_item"></view>
+    <view class="address_border_bottom_item"></view>
+    <view class="address_border_bottom_item"></view>
+    <view class="address_border_bottom_item"></view>
+  </view>
+</view>
+<view class="goods_info" wx:for="{{goods}}" wx:key="goods_item">
+  <view class="store">
+    <text class="iconfont icon-store"></text>
+    <text class="store_name">{{item.seller_name}}</text>
+  </view>
+  <!--商品信息-->
+  <view class="goods">
+    <view class="goods_left">
+      <image src="{{item.thumb}}" mode="aspectFill"></image>
+    </view>
+    <view class="goods_right">
+      <view class="goods_title">
+        {{item.goods_name}}
+      </view>
+      <view class="goods_desc">
+
+      </view>
+      <view class="goods_price_box">
+        <view class="goods_price">
+          {{'￥'+item.goods_price}}
+        </view>
+        <view class="goods_price_calc" wx:if="{{!activity}}">
+          <view class="minus" bindtap="cart_minus" data-goodsId="{{item.id}}" id="{{index}}">-</view>
+          <view class="number">{{item.count}}</view>
+          <view class="add" bindtap="cart_add" data-goodsId="{{item.id}}" id="{{index}}">+</view>
+        </view>
+        <view class="goods_price_calc" wx:if="{{arrearage}}">
+          {{'×'+item.count}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--优惠券-->
+<view class="coupon_picker">
+  <picker mode="selector" range="{{coupon}}" bindchange="bindPickerChange" value="{{index}}">
+    <view class="picker"  wx:if="{{coupon != null&&coupon != undefined&&coupon.length > 0}}">
+      <view class="picker_value">优惠券：{{coupon[index]}}</view>
+      <view class="more">
+        <text class="iconfont icon-arrowright"></text>
+      </view>
+    </view>
+  </picker>
+  <view class="picker" wx:if="{{coupon == null||coupon == undefined||coupon.length <= 0}}">
+    <view class="picker_value">没有可用优惠券</view>
+  </view>
+</view>
+<!--清关信息-->
+<view class="identity_info">
+    <picker range="{{identityList}}" value="{{identityIndex}}" wx:if="{{identityList.length > 0}}" bindchange="changeIdentity">
+      <view class="identity_info_box">
+        <view class="identityIndex_value">
+          当前清关信息：{{identityList[identityIndex]}}
+        </view>
+        <view class="more"><text class="iconfont icon-arrowright"></text></view>
+      </view>
+    </picker>
+    <view class="identity_tips" wx:if="{{identityList.length <= 0}}">请填写清关信息</view>
+  </view>
+<!--合计金额-->
+<view class="price">
+  <view class="price_item">
+    <view class="price_title">
+      商品金额
+    </view>
+    <view class="total_price">
+      {{"￥"+totalPrice}}
+    </view>
+  </view>
+  <view class="price_item">
+    <view class="price_title">
+      运费
+    </view>
+    <view class="mail_price">
+      {{"+￥"+mailPrice}}
+    </view>
+  </view>
+  <view class="price_item">
+    <view class="price_title">
+      优惠
+    </view>
+    <view class="coupon_price">
+      {{"-￥"+couponPrice}}
+    </view>
+  </view>
+  <view class="final">
+    实付金额：
+    <text class="final_price">{{"￥"+finalPrice+'(含税'+tariff+')'}}</text>
+  </view>
+  <view class="footer_nav">
+    <view class="total_price">
+      <text class="total_price_text">付款</text>
+      <text class="total_price_num">{{"￥"+finalPrice+'(含税'+tariff+')'}}</text>
+    </view>
+    <button class="pay_btn" formtype="submit" bindtap="payment">
+        <view class="pay_text_align">
+          去付款<i class="iconfont icon-sanjiaoxing pay_btn_arrow"></i>
+        </view>
+    </button>
+  </view>
+</view>

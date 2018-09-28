@@ -1,0 +1,9 @@
+/**app.wxss**/
+/*引入*/
+@import "./template/importMark/importMark.wxss";
+page{
+    font-family: "苹方","PingFang SC","思源黑体",'microsoft yahei';
+}
+.theme_color{
+  color: #ff4965;
+}

@@ -1,0 +1,5 @@
+<!--pages/commonProblem/commonProblem.wxml-->
+<view class="wrap" wx:for="{{result}}">
+  <view class="problem">问：{{item.question}}</view>
+  <view class="daan">答：{{item.answer}}</view>
+</view>

@@ -1,0 +1,476 @@
+/**index.wxss**/
+
+/*引入SEARCH*/
+@import "../../style/utils/search.wxss";
+
+/*引入ICONFONT*/
+@import "../../style/iconfont/iconfont.wxss";
+
+/*引入animate动画库*/
+@import "../../style/animation/animate.wxss";
+
+/*引入loading动画*/
+@import "../../style/animation/loading.wxss";
+.zhezhao{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  height: 100%;
+  padding-top: 40rpx;
+  box-sizing: border-box;
+}
+.zhezhao .img{
+  width: 50%;
+}
+.img image{
+  width: 100%;
+}
+.lose-text{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color:#515151
+}
+.lose-text .title{
+  margin-top:40rpx; 
+}
+.lose-text .read-detail{
+  font-size: 31rpx;
+  margin: 40rpx 0;
+}
+.lose-text .des-detail{
+  font-size: 28rpx;
+  color: #ccc;
+  padding: 0 31rpx;
+  box-sizing: border-box;
+}
+.btn-botom{
+  font-size: 32rpx;
+  background: #ff4965;
+  border-radius: 4px;
+  height: 44px;
+  line-height: 44px;
+  color: white;
+  position: absolute;
+  width: 50%;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 100rpx;
+}
+
+
+page {
+  background-color: #eee;
+  height: 100%;
+}
+/*红包蒙板*/
+.mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 9;
+  width: 100vw;
+  height: 100vh;
+}
+
+/*红包*/
+.bribery_money{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  padding: 50rpx;
+  box-sizing: border-box;
+  z-index: 9999;
+  padding-top: 100rpx;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+.bribery_money .b_money_wrapper{
+  position: relative;
+  height: 866rpx;
+  background-color: #e3393a;
+  border-radius: 5px;
+  background-size: contain;
+  overflow: hidden;
+  transition: all .85s linear;
+}
+.bribery_money .b_money_empty{
+  position: relative;
+  background-color: #e3393a;
+  border-radius: 5px;
+  background-size: contain;
+  background-image: none;
+}
+.b_money_empty_logo{
+  position: absolute;
+  top: 60rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  background: url("http://jp.shenmikj.com/red-package/empty.jpg") 0 0 no-repeat;
+  background-size: contain;
+  background-color: #f5be97;
+}
+.bribery_money .b_money_tips{
+  width: 520rpx;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 370rpx;
+  color: #ffb955;
+}
+.bribery_money .money_tips_in{
+  width: 520rpx;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 40rpx;
+  color: #ffb955;
+}
+.bribery_money .b_money_tips .empty_tips1{
+  font-size: 15px;
+}
+.bribery_money .b_money_tips .empty_tips2{
+  font-size: 15px;
+}
+.ticker_new_people{
+  margin-top: 200rpx!important;
+  width: 90%;
+  border-top: 1px solid #444;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 32rpx;
+  box-sizing: border-box;
+  overflow: auto;
+  height: 600rpx;
+}
+.ticker_new_people .ticker_has{
+  background: white;
+  width: 100%;
+  margin-bottom: 40rpx;
+}
+.ticker_has .top_box{
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx 0 10rpx 0;
+}
+.ticker_has .top_box .price_left{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  font-size: 48rpx;
+  border-right: 1px dotted #444;
+  height: 70px;
+}
+.bottom_box{
+  height: 35px;
+  background: rgb(253, 103, 105)
+}
+.top_box .des_box{
+  padding-left: 32rpx;
+  padding-top: 20rpx;
+}
+.bottom_box{
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: rgba(255,255,255,.8);
+  align-items: center;
+  padding:0 32rpx
+}
+.bribery_money .b_money_wrapper .b_money_close{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  font-size: 30px;
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 30px;
+  text-align: center;
+  color: #930314;
+}
+.b_money_logo{
+  position: absolute;
+  top: 40rpx;
+  left: 50%;
+  width: 120rpx;
+  height: 120rpx;
+  background: #fff;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+.b_money_logo .logo{
+  width: 120rpx;
+  height: 120rpx;
+  box-shadow: 0 3px 8px rgba(0,0,0,.4);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.b_money_gap{
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  bottom: 0;
+  background-color: #c93435;
+}
+.b_money_gap::after{
+  content: "";
+  position: absolute;
+  box-shadow: 0 8px 8px rgba(0,0,0,.1);
+  border-radius: 50%;
+  left: 0;
+  top: -10%;
+  transform: translateY(-70% ) scaleX(1.25);
+  width: 100%;
+  height: 100%;
+  background-color: #e3393a;
+}
+.b_money_open{
+  width: 185rpx;
+  height: 185rpx;
+  background-color: #ffba55;
+  border-radius: 50%;
+  box-shadow: 0 3px 8px rgba(0,0,0,.2);
+  position: absolute;
+  top: 509rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.b_money_open .b_money_open_inner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ffba55;
+  color: #432604;
+  font-size: 35px;
+  line-height: 185rpx;
+  border-radius: 50%;
+}
+/*返回顶部*/
+.back_top{
+  position: fixed;
+  right: -40px;
+  transition: .5s right;
+  top: 75vh;
+  background-color: rgba(0,0,0,.4);
+  width: 40px;
+  height: 40px;
+  border-radius: 6rpx 0 0 6rpx;
+  z-index: 999;
+  text-align: center;
+  color: #fff!important;
+}
+.back_top.active{
+  right: 0;
+}
+.back_top .icon-rocket{
+  font-size: 28px;
+  line-height: 40px;
+}
+
+/*主视图窗口*/
+.main{
+  height: 100%;
+}
+
+
+/*轮播图*/
+
+.banner swiper {
+  padding-top: 40px;
+  height: 210px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.banner .slide_image {
+  width: 750rpx;
+  height: 210px;
+}
+
+/*轮播图*/
+
+/*分类区域*/
+
+.cate {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0 40rpx;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+}
+
+.cate image {
+  width: 60rpx;
+}
+
+.cate .coupon, .cate .activity, .cate .logistics, .cate .goods_cate {
+  padding: 40rpx 0;
+  float: left;
+  width: 25vw;
+  text-align: center;
+  font-size: 10pt;
+  color: #333;
+}
+
+/*分类区域*/
+
+/*精品推荐*/
+
+.recommend {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10rpx;
+  color: #353535;
+  background-color: #fff;
+  padding: 20rpx;
+}
+.recommend .goods_title{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 11pt;
+  margin: 0 30rpx 10rpx;
+  text-align: center;
+  line-height: 20px;
+  padding: 10rpx 0;
+}
+.recommend .goods_title .goods_title_text{
+  padding: 0 10rpx;
+  font-size:12pt;
+}
+
+.recommend .icon-diamond{
+  font-size: 5pt;
+  line-height: 16pt;
+  color:#808080;
+}
+.recommend .goods_title::after{
+  content: "—";
+  line-height: 18px;
+  color:#808080;
+}
+.recommend .goods_title::before{
+  content: "—";
+  line-height: 18px;
+  color:#808080;
+}
+.recommend .goods_item_box{
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+  border: 1px solid #f5f5f5;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.085);
+  border-radius: 3px;
+}
+.recommend .goods_item{
+  padding: 12px 0;
+  margin: 0 30rpx;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+.recommend .goods_item .goods_left,.recommend .goods_item .goods_left image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.recommend .goods_item .goods_left{
+  margin-right: 10rpx;
+}
+.recommend .goods_item .goods_right{
+  width: 490rpx;
+  display: flex;
+  flex-direction: column;
+}
+.recommend .goods_item .goods_right .goods_name{
+  font-size: 32rpx;
+  padding-left: 4rpx;
+  text-align: left;
+}
+.recommend .goods_item .goods_right .goods_store{
+  margin-top: 10rpx;
+  font-size: 11pt;
+  color: #999;
+}
+.recommend .goods_item .goods_right .goods_price_box{
+  margin-top: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 32px;
+  align-items: center
+}
+.recommend .goods_item .goods_right .goods_price_box .goods_price{
+  color: #ff4965;
+}
+.recommend .goods_item .goods_right .goods_price_box .goods_buy_btn{
+  text-align: center;
+  background-color: #ff4965;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  box-shadow:-10px 0 10px transparent,10px 0 10px transparent, 0 -10px 10px transparent, 0 2px 5px rgba(255, 72, 145, 0.6);
+  color: #fff;
+  line-height: 37px;
+}
+.recommend .goods_item .goods_right .goods_price_box .goods_buy_btn .iconfont{
+  font-size: 20px;
+  line-height: 37px;
+}
+/*精品推荐*/
+
+/*猜你喜欢*/
+.recommend .recommend_banner{
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+/*猜你喜欢*/
+
+/*加减按钮*/
+.goods_price_box .count_selector{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+  color: #666666;
+  text-align: center;
+  height: 40rpx;
+}
+.goods_price_box .count_selector .minus{
+  color: #ff4965;
+}
+.goods_price_box .count_selector .add,.goods_price_box .count_selector .minus{
+  display: inline-block;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  font-size: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ff4965;
+  line-height: 40rpx;
+  vertical-align: middle;
+}
+.goods_price_box .count_selector .add{
+  color: #fff;
+  background-color: #ff4965;
+}
+.goods_price_box .count_selector .number{
+  width: 60rpx;
+  font-size: 14px;
+  line-height: 40rpx;
+}

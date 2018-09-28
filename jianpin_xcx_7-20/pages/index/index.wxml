@@ -1,0 +1,201 @@
+<!--index-->
+<!--<import src='../../template/importMark/importMark.wxml' />-->
+<!--红包-->
+<view class="zhezhao" wx:if="{{!openid}}">
+  <view class="img">
+    <image src="../../images/loginLose.png" mode="widthFix"></image>
+  </view>
+  <view class="lose-text">
+    <view class="title">登陆失败</view>
+    <view class="read-detail">尖品需要允许授权,请重新允许授权</view>
+    <view class="des-detail">拒绝授权尖品小程序将无法使用领取优惠券,下单,查看商品等功能</view>
+  </view>
+  <view class="btn-botom" bindtap="forRoot">重新授权</view>
+</view>
+
+<view wx:if="{{openid}}">
+  <view class="mask" wx:if="{{moneyState}}"></view>
+  <view class="bribery_money {{animation}}" wx:if="{{moneyState}}">
+    <view class="b_money_wrapper {{empty}}">
+      <view class="b_money_logo" wx:if="{{!empty}}">
+        <image src="http://jp.shenmikj.com/logo.png" mode="scaleToFill" class="logo"></image>
+      </view>
+      <view class="b_money_close" bindtap="closeMoney">×</view>
+      <view class="b_money_gap" wx:if="{{!empty}}"></view>
+      <view class="b_money_open" bindtap="open" wx:if="{{!empty}}">
+        <view class="b_money_open_inner">開</view>
+      </view>
+      <!--<view class="b_money_empty_logo" wx:if="{{empty}}"></view>-->
+      <view class="b_money_tips {{empty?'money_tips_in':''}}">
+        <view class="empty_tips1" wx:if="{{empty}}">{{empty_tips1}}</view>
+        <view class="empty_tips2" wx:if="{{empty}}">{{empty_tips2}}</view>
+        <view class="empty_tips1" wx:if="{{!empty}}">{{moneyTips}}</view>
+        <view class="empty_tips2" wx:if="{{!empty}}">{{moneyTips1}}</view>
+      </view>
+      <view class="ticker_new_people" wx:if="{{empty}}">
+        <view class="ticker_has" wx:for="{{showSticker}}" wx:for-item="ti">
+          <view class="top_box">
+            <view class="price_left">
+              <view style="margin:0 auto">
+                <text style="font-size:20px">￥</text>
+                <text style="font-size:28px;font-weight:bold">{{ti.amount}}</text>
+              </view>
+            </view>
+            <view class="des_box">
+              <view style="font-size:34rpx;">{{ti.amount+"元抵购劵"}}</view>
+              <view style="font-size:30rpx;color:#999">{{"订单满"+ti.fulfilvalue+"元可用"}}</view>
+            </view>
+          </view>
+          <view class="bottom_box">
+            <text>{{ti.category_name}}</text>
+            <!--<text>{{ti.validity}}</text>-->
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--红包-->
+
+  <!--搜索区域-->
+  <view class="search">
+    <navigator url="../search/search">
+      <view class="search-bar">
+        <view class="search_info">
+          <text class="iconfont icon-search"></text>搜索尖品商品
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <!--搜索区域-->
+
+  <!--返回顶部-->
+  <view class="back_top {{topActive}}" bindtap="backTop">
+    <text class="iconfont icon-rocket"></text>
+  </view>
+  <!--返回顶部-->
+
+  <scroll-view class="main" scroll-y="true" bindscroll="scrollListener" scroll-top="{{scrolltop}}" scroll-with-animation="true" hidden="{{ready}}">
+    <!--轮播图区域-->
+    <view class="banner">
+      <swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000" indicator-color="rgba(255,255,255,0.7)" indicator-active-color="rgba(0,0,0,0.6)">
+        <block wx:for="{{imgUrls}}" wx:key="slide_image">
+          <swiper-item>
+            <view bindtap="infoNav" data-goodsId="{{item.goodsid}}">
+              <image src="{{item.url}}" mode="aspectFill" class="slide_image" />
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!--轮播图区域-->
+
+    <!--分类区域-->
+    <view class="cate">
+      <navigator url="../getTicket/getTicket">
+        <view class="coupon">
+          <view class="coupon_icon">
+            <image src="http://xiaocx.jianpinvip.cn/Public/img/coupon.png" mode="widthFix"></image>
+          </view>
+          <view class="coupon_text">领优惠券</view>
+        </view>
+      </navigator>
+      <navigator url="../activity/activity">
+        <view class="activity">
+          <view class="activity_icon">
+            <image src="http://xiaocx.jianpinvip.cn/Public/img/promotion11.png" mode="widthFix"></image>
+          </view>
+          <view class="activity_text">活动入口</view>
+        </view>
+      </navigator>
+      <navigator url="../order/order?id=2">
+        <view class="logistics">
+          <view class="logistics_icon">
+            <image src="http://xiaocx.jianpinvip.cn/Public/img/logistical.png" mode="widthFix"></image>
+          </view>
+          <view class="logistics_text">物流查询</view>
+        </view>
+      </navigator>
+      <navigator url="../cate/cate">
+        <view class="goods_cate">
+          <view class="goods_cate_icon">
+            <image src="http://xiaocx.jianpinvip.cn/Public/img/cate.png" mode="widthFix"></image>
+          </view>
+          <view class="goods_cate_text">商品分类</view>
+        </view>
+      </navigator>
+    </view>
+    <!--分类区域-->
+
+    <!--精品推荐-->
+    <view class="recommend">
+      <view class="goods_title">
+        <view class="iconfont icon-diamond"></view>
+        <text class="goods_title_text">精品推荐</text>
+        <view class="iconfont icon-diamond"></view>
+      </view>
+      <view wx:for="{{goods}}" wx:key="goods_item" bindtap="infoNav" data-goodsId="{{item.id}}" class="goods_item_box">
+        <view class="goods_item">
+          <template wx:if="{{item.is_imported == 1}}" is="importMark"></template>
+          <view class="goods_left">
+            <image src="{{item.url}}" mode="aspectFill"></image>
+          </view>
+          <view class="goods_right">
+            <view class="info">
+              <view class="goods_name">{{item.goods_name}}</view>
+            </view>
+            <view class="goods_price_box">
+              <view class="goods_price">
+                <text>{{"￥"+item.goods_price}}</text>
+              </view>
+              <!--<view class="goods_buy_btn" catchtap="addCart">-->
+              <view class="goods_buy_btn" catchtap="addCart" data-goods-id="{{item.id}}" data-type="recommend" wx:if="{{item.count <= 0}}">
+                <view class="iconfont icon-cart1"></view>
+              </view>
+              <view class="count_selector" wx:if="{{item.count > 0}}">
+                <view class="minus" catchtap="cart_minus" data-goodsId="{{item.id}}" data-type="goods">-</view>
+                <view class="number">{{item.count}}</view>
+                <view class="add" catchtap="cart_add" data-goodsId="{{item.id}}" data-type="goods">+</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!--精品推荐-->
+
+    <!--猜你喜欢-->
+    <view class="recommend" wx:for="{{r_goods}}" wx:key="igoods">
+      <image class="recommend_banner" src="{{item.img}}" mode="widthFix"></image>
+      <view wx:for="{{item.goods}}" wx:for-item="dc" wx:key="like" bindtap="infoNav" data-goodsId="{{dc.id}}" class="goods_item_box">
+        <template wx:if="{{item.is_imported == 1}}" is="importMark"></template>
+        <view class="goods_item">
+          <view class="goods_left">
+            <image src="{{dc.url}}" mode="aspectFill"></image>
+          </view>
+          <view class="goods_right">
+            <view class="info">
+              <view class="goods_name">
+                {{dc.goods_name}}
+              </view>
+            </view>
+            <view class="goods_price_box">
+              <view class="goods_price">
+                <text>{{"￥"+dc.goods_price}}</text>
+              </view>
+              <view class="goods_buy_btn" catchtap="addCart" data-goods-id="{{dc.id}}" data-type="r_recommend" wx:if="{{dc.count <= 0}}">
+                <i class="iconfont icon-cart1"></i>
+              </view>
+              <view class="count_selector" wx:if="{{dc.count > 0}}">
+                <view class="minus" catchtap="cart_minus" data-goodsId="{{dc.id}}" data-type="r_goods">-</view>
+                <view class="number">{{dc.count}}</view>
+                <view class="add" catchtap="cart_add" data-goodsId="{{dc.id}}" data-type="r_goods">+</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--猜你喜欢-->
+  </scroll-view>
+</view>

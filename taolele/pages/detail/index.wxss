@@ -1,0 +1,145 @@
+/* index.wxss */
+.page-detail{
+  padding-bottom: 10vh;
+  background: #eee;
+  font-size: 30rpx;
+}
+.page-detail .slider{
+  background: #fff;
+}
+.page-detail .slider swiper{
+  height: 50vh;
+}
+.page-detail .slider .slide-image{
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-detail .info{
+  padding: 4vw;
+  background: #fff;
+}
+.page-detail .info .title{
+  margin-bottom: 3vw;
+  font-size: 34rpx;
+  line-height: 1.6;
+}
+.page-detail .info .price{
+    font-size: 50rpx;
+}
+.page-detail .info .price .origin{
+   margin-left: 0.5em;
+    font-size: 60%;
+    color: #999;
+    text-decoration: line-through;
+}
+.page-detail .info .sold{
+  margin-top: 3vw;
+  font-size: 26rpx;
+  color: #707070;
+}
+.page-detail .info .sold .provcity{
+  float: right;
+}
+
+.page-detail .ticket{
+  display: flex;
+  align-items: center;
+  background: #f9fafb;
+}
+.page-detail .ticket .label{
+  padding: 3vw;
+  width: 1em;
+  font-size: 32rpx;
+  line-height: 1.2;
+  color: #fff;
+  background: #fdbf98;
+
+  position: relative;
+}
+.page-detail .ticket .label:after{
+  content: '';
+  position: absolute;
+  top: 0; right: 0;bottom: 0;
+  border-right: 6rpx dotted #f9fafb;
+}
+.page-detail .ticket .cont{
+  flex: 1;
+  padding: 0 3vw;
+  line-height: 2;
+}
+.page-detail .ticket .cont .text{
+    display: block;
+    font-size: 32rpx;
+}
+.page-detail .ticket .cont .time{
+  display: block;
+  font-size: 28rpx;
+  color: #707070;
+}
+
+
+.recomend{
+  margin-top: 3vw;
+  background: #fff;
+}
+.recomend .title{
+  padding: 4vw;
+  text-align: center;
+}
+.recomend .goods{
+  overflow: hidden;
+  padding: 1vw 0.5vw; 
+  background: #f3f4f5;
+}
+.recomend .goods .good-item{
+  float: left;
+  width: 50%;
+  font-size: 30rpx;
+}
+.recomend .goods .good-item .inner{
+   padding: 1vw; 
+}
+.recomend .goods .good-item .inner .img{
+   height: 48vw;
+  overflow: hidden;
+  background: #fff;
+}
+.recomend .goods .good-item .inner .text{
+  padding: 2vw;
+  line-height: 1.7;
+  background: #fff;
+}
+.recomend .goods .good-item .inner .text .name{
+    height: 150rpx;
+    overflow: hidden;
+}
+.recomend .goods .good-item .inner .text .price{
+  
+}
+.recomend .goods .good-item .inner .text .price text{
+  display: inline-block;
+}
+.recomend .goods .good-item .inner .text .price .origin{
+  margin-left: 1em;
+  font-size: 80%;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.btn-bottom-fixed{
+  position: fixed;
+  left: 0;right: 0;bottom: 0;
+}
+.btn-bottom-fixed button{
+  height: 9vh;
+  line-height: 9vh;
+  border-radius: 0;
+  background: #ff6f00;
+  color:#fff;
+  font-size: 36rpx;
+}
+.btn-bottom-fixed button:after{
+  display: none;
+}

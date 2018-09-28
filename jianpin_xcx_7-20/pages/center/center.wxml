@@ -1,0 +1,133 @@
+<!--pages/center/center.wxml-->
+<view class="user_info">
+  <view class="account">
+    <view class="user_img">
+      <image src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <view class="user_name">{{userInfo.nickName}}</view>
+  </view>
+</view>
+
+<view class="order">
+  <view class="order_item">
+    <navigator url="../order/order?id=11" class="total_order">
+      <view class="order_title">
+        我的订单
+      </view>
+      <view class="more">
+        <text class="total_order_text">查看全部订单</text>
+        <text class="iconfont icon-arrowright"></text>
+      </view>
+    </navigator>
+  </view>
+  <view class="order_list">
+    <!--<navigator class="order_item" url="../order/order?id=11">
+      <view class="order_title">
+        <view class="order_title_icon">
+          <text class="iconfont icon-order"></text>
+        </view>
+        <view class="order_title_text">
+          全部
+        </view>
+      </view>
+    </navigator>-->
+
+    <navigator class="order_item" url="../order/order?id=1">
+      <view class="order_title">
+        <view class="order_title_icon">
+          <text class="iconfont icon-wallet"></text>
+        </view>
+        <view class="order_title_text">
+          待付款
+        </view>
+      </view>
+    </navigator>
+
+    <navigator class="order_item" url="../order/order?id=2">
+      <view class="order_title">
+        <view class="order_title_icon">
+          <text class="iconfont icon-package"></text>
+        </view>
+        <view class="order_title_text">
+          待发货
+        </view>
+      </view>
+    </navigator>
+
+    <navigator class="order_item" url="../order/order?id=3">
+      <view class="order_title">
+        <view class="order_title_icon">
+          <text class="iconfont icon-truck"></text>
+        </view>
+        <view class="order_title_text">
+          待收货
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<navigator url="../refundOrder/refundOrder" class="coupon_ticket address">
+  <view class="address_title">
+    <text class="iconfont icon-refund"></text>
+    售后订单
+  </view>
+  <view class="more">
+    <text class="iconfont icon-arrowright"></text>
+  </view>
+</navigator>
+
+<navigator url="../coupon/coupon" class="coupon_ticket coupon_nav">
+  <view class="coupon_ticket_title">
+    <text class="iconfont icon-youhuiquanguanli"></text>
+    我的优惠券
+  </view>
+  <view class="more">
+    <text class="iconfont icon-arrowright"></text>
+  </view>
+</navigator>
+
+<!--<navigator url="../address/address" class="coupon_ticket address">
+  <view class="address_title">
+    <text class="iconfont icon-address"></text>
+    我的地址
+  </view>
+  <view class="more">
+    <text class="iconfont icon-arrowright"></text>
+  </view>
+</navigator>-->
+
+<navigator url="../addresslist/addresslist" class="coupon_ticket address">
+  <view class="address_title">
+    <text class="iconfont icon-address"></text>
+    我的地址
+  </view>
+  <view class="more">
+    <text class="iconfont icon-arrowright"></text>
+  </view>
+</navigator>
+
+<navigator url="../identity/identity" class="coupon_ticket address">
+  <view class="address_title">
+    <text class="iconfont icon-shenfen"></text>
+    实名认证
+  </view>
+  <view class="more">
+    <text class="iconfont icon-arrowright"></text>
+  </view>
+</navigator>
+
+<navigator url="../commonProblem/commonProblem" class="coupon_ticket address">
+  <view class="address_title">
+    <text class="iconfont icon-wenti"></text>
+    常见问题
+  </view>
+  <view class="more">
+    <text class="iconfont icon-arrowright"></text>
+  </view>
+</navigator>
+
+<view class="contact-btn">
+  <contact-button type="default-light" size="27" session-from="location" />
+  <text>客服</text>
+</view>

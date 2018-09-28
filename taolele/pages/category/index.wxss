@@ -1,0 +1,36 @@
+
+
+.app-category{
+  padding: 30rpx;
+  
+}
+.app-category:after{
+  content: '';
+  display: table;
+  clear: both;
+}
+.app-category .item{
+  float: left;
+  width: 25%;
+  font-size: 30rpx;
+  
+
+  text-align: center;
+  box-sizing:border-box;
+}
+.app-category .item image{
+  display: block;
+  margin: 0 auto 10rpx;
+  width: 64rpx;
+  height: 64rpx;
+}
+.app-category .item text{
+  font-size: 24rpx;
+  color:#666;
+}
+
+.app-category .item .button{
+  display: block;
+  padding: 60rpx 20rpx;
+  border-radius: 8rpx;
+}

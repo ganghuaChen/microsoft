@@ -1,0 +1,54 @@
+<!--pages/coupon/coupon.wxml-->
+<view class="tab_bar">
+  <view class="enable tab_item {{enableState}}" id="0" bindtap="changeTab">
+    待使用  <text class="coupon_count"></text>
+  </view>
+  <view class="disable tab_item {{disableState}}" id="1" bindtap="changeTab">
+    已过期  <text class="coupon_count"></text>
+  </view>
+  <view class="used tab_item {{usedState}}" id="2" bindtap="changeTab">
+    已使用  <text class="coupon_count"></text>
+  </view>
+</view>
+
+<view class="empty_tips" wx:if="{{ticket.length < 1}}">
+  <view class="empty_icon">
+    <text class="iconfont icon-search"></text>
+  </view>
+  <view class="empty_text">
+    <text>您没有优惠券</text>
+  </view>
+</view>
+
+<view class="ticket_list" wx:for="{{ticket}}" wx:key="ticket_key">
+  <view class="ticket_item {{usedState?'item_ccc':''}} {{disableState?'item_ccc':''}}">
+    <view class="ticket_price {{usedState?'price_ccc':''}} {{disableState?'price_ccc':''}}">
+      <view class="ticket_price_left">
+      <span class="price_code">￥</span>
+        {{item.deduction}}
+      </view>
+      <view class="ticket_price_right">
+      <view class="ticket-name">{{item.name}}</view>
+       
+        <view class="store_range">
+          {{'订单满'+item.threshold+'元可用'}}
+        </view>
+        <view class="item-bottom-box">
+           <view class="use_range" wx:if="{{item.business_name}}">
+            {{'限商家 '+item.business_name}};
+            </view>
+            <view class="category-name" wx:if="{{item.category_name}}">限分类 {{item.category_name}}</view>
+        </view>        
+      </view>
+    </view>
+    <view class="ticket_range {{usedState?'range_ccc':''}} {{disableState?'range_ccc':''}}">
+        <view class="cate">
+        <text  wx:if="{{item.category_name == '全场'}}">{{item.category_name}}</text>
+        
+        </view>
+        <view class="time">
+        {{item.effective}}
+        </view>
+    </view>
+  </view>
+</view>

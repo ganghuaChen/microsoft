@@ -1,0 +1,287 @@
+/**app.wxss**/
+
+.text-primary{
+  color:#ff6f00 !important;
+}
+
+.body {
+  height: 100vh;
+}
+
+
+.dialog{
+  position: fixed;
+  /*z-index: 999;*/
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.dialog .dialog-mask{
+  position: absolute;
+  top: 0;left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.dialog .dialog-inner{
+  position: absolute;
+  width: 80%;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.dialog .dialog-inner .hd{
+  position: relative;
+  line-height: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  color:#fff;
+  font-size: 36rpx;
+  background-color: #ff6f00;
+  background: linear-gradient(to right, #ff8a00,#ff5800);
+}
+.dialog .dialog-inner .hd .title{
+
+}
+.dialog .dialog-inner .hd .close{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100rpx;
+  height: 100rpx;
+  padding-top: 4rpx;
+  border: none;
+  background: none;
+}
+.dialog .dialog-inner .hd .close:after{
+  display: none;
+}
+.dialog .dialog-inner .hd .close image{
+  width: 26rpx;
+  height: 26rpx;
+  vertical-align: text-top;
+}
+
+.dialog .dialog-inner .bd{
+  padding: 40rpx;
+  font-size: 28rpx;
+}
+.dialog .dialog-inner .bd .sms-box{
+  display: flex;
+}
+.dialog .dialog-inner .bd .sms-box .input{
+  display: block;
+  flex: 1;
+  padding-right: 20rpx;
+}
+.dialog .dialog-inner .bd .sms-box .button{
+  
+}
+.dialog .dialog-inner .bd  .sms-tip{
+  margin-top: 40rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #999;
+}
+.dialog .dialog-inner .bd .txt{
+  padding: 20rpx;
+  line-height: 1.8;
+  color:#5b839d;
+  border: 1px solid #c6e9f5;
+  background-color: #c6ecfa;
+  border-radius: 10rpx;
+}
+.dialog .dialog-inner .bd .txt text{
+  display: block;
+}
+.dialog .dialog-inner .bd .btn{
+  padding: 40rpx 0;
+}
+.dialog .dialog-inner .bd .btn button{
+  color:#fff;
+  background-color: #ff6f00;
+  background: linear-gradient(to right, #ff8a00,#ff5800);
+}
+.dialog .dialog-inner .bd .tip{
+  margin: 30rpx 0;
+  color: #999;
+  text-align: center;
+}
+.dialog .dialog-inner .bd .browser{
+  text-align: center;
+}
+.dialog .dialog-inner .bd .browser text{
+  font-size: 24rpx;
+  color:#bbb;
+}
+.dialog .dialog-inner .bd .browser button{
+  margin-top: 40rpx;
+  color:#51b3db;
+  background-color: #c6ecfa;
+}
+.dialog .dialog-inner .bd .btn button, .dialog .dialog-inner .bd .browser button{
+  z-index: 999;
+  width: 60%;
+  font-size: 30rpx;
+  border: none;
+  border-radius: 40rpx;
+}
+.dialog .dialog-inner .bd .btn button:after, .dialog .dialog-inner .bd .browser button:after{
+  display: none;
+}
+
+.app-search {
+  padding: 3vw;
+  background-color: #ff6f00;
+}
+
+.app-search .wrap {
+  border-radius: 3vh;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAByUExURUdwTP9/AP9mAP9sAP9iAP93AP95AP9nAP9rAP9hAP9/AP9iAP9oAP93AP9yAP+DAP+DAP99AP91AP97AP+DAP9jAP92AP9vAP9yAP9yAP+IAP+HAP+FAP9lAP+HAP9kAP9uAP9nAP9eAP98AP+BAP92ALiyGrkAAAAedFJOUwBv5tmyP4MGApjdecWLGRDNwKhWn3DkXJXt8bbp9gXnZ2cAAAD+SURBVCjPjZLZcoMwDEUNxgsGwha2kFoWmP//xTIlwTFMafUk64ykK8mE/JioK7UsC606QQ4mg+c8zytcjBka6bFbae2s+qALemqMSW+fTFlbsNeDpQZDR0WhbeZKSY5I98Zc68zrwhHegfyhC1+CTPHrVTjQmh3EM4Rk80atjpMRCunmPPT9BGMIN0drfoIJwD/g86rsqJ/yCEOIrkZp3BL8M4l1CTnZU/2uPWKyb6vU9u5yRYwYumdeWKvqTZWsqUHE2GnMx/XYQ8UDXg3rsUNE+KCkVvs3oZ2IEDwqWVa2bVtmbA2KCGCKT9O/RUUwXdHpT0ouaEJ+pw25tG+FOxU3W7NjpAAAAABJRU5ErkJggg==) 97% 48% no-repeat #fff;
+  background-size: auto 28rpx;
+}
+
+
+.app-search .search-input {
+  height: 6vh;
+  padding: 0 60rpx 0 30rpx;
+  font-size: 28rpx;
+}
+
+.goods-container {
+  /*padding: 3vw;*/
+  background-color: #fff;
+}
+
+.app-good {
+  /*margin-bottom: 3vw;*/
+  padding: 0 0 0 3vw;
+  /*box-shadow: 0 0 10rpx 1rpx rgba(0, 0, 0, 0.1);*/
+}
+
+.app-good:last-child {
+  margin-bottom: 0;
+}
+
+.app-good .wrap {
+  display: flex;
+  align-items: center;
+}
+
+.app-good .image {
+  width: 34vw;
+  height: 34vw;
+  overflow: hidden;
+}
+
+.app-good .image image {
+  width: 100%;
+}
+
+.app-good .text {
+  flex: 1;
+  padding: 3vw;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
+}
+.app-good:last-child .text{
+  border-bottom: none;
+}
+
+.app-good .text .name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 1.5;
+  margin-bottom: 2vw;
+}
+
+.app-good .text .sale {
+  display: block;
+  color: #707070;
+  font-size: 26rpx;
+}
+
+.app-good .text .price {
+  display: block;
+  color: #707070;
+  font-size: 26rpx;
+  padding-top: 2vw;
+}
+
+.app-good .text .price .num {
+  font-size: 36rpx;
+}
+
+.app-good .text .price .num2 {
+  margin-left: 2vw;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.app-good .text .button {
+  margin-top: 2vw;
+}
+.app-good .text .button>text{
+  font-size: 28rpx;
+  border: none;
+  color:#ff6f00;
+  line-height: 58rpx;
+}
+.app-good .text .button button{
+  float: right;
+  color: #fff;
+  background-color: #ff6f00;
+  background: linear-gradient(to right, #ff8a00,#ff5800);
+}
+.app-good .text .button:after{
+  display: none;
+}
+
+.app-load-more{
+  position: relative;
+  text-align:center;
+  padding: 2vw 0;
+}
+.app-load-more .text{
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  padding: 0 3vw;
+  font-size: 24rpx;
+  color: #999;
+  background-color: #fff;
+}
+.app-load-more::before{
+  content: '';
+  position: absolute;
+  top: 52%; 
+  left: 3vw;
+  right: 3vw;
+  height: 1px;
+  background-color: #ccc;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+}
+
+
+
+.app-list-empty{
+   text-align: center;
+}
+
+.app-list-empty image{
+  display: block;
+  margin: 1vh auto;
+  width: 216rpx;
+}

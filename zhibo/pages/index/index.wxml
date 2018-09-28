@@ -1,0 +1,4 @@
+<view class='page-index'>
+  <button bindtap='onGuankan' type='primary'>去观看</button>
+  <button bindtap='onZhibo' type='primary'>去直播</button>
+</view>

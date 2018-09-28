@@ -1,0 +1,61 @@
+/* pages/identity/identity.wxss */
+@import '../../style/iconfont/iconfont.wxss';
+
+page{
+  background-color: #eee;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.wrapper .identity_item{
+  background-color: #fff;
+  box-shadow: 0 3px 5px #efefef;
+  box-sizing: border-box;
+  padding: 20rpx;
+  color: #333;
+  margin-bottom: 20rpx
+}
+.wrapper .identity_item .identity_name{
+  font-size: 14px;
+  line-height: 14px;
+  margin-bottom: 20rpx;
+  font-weight: bold;
+}
+.wrapper .identity_item .identity_num{
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+.wrapper .identity_item .identity_footer{
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 20rpx;
+}
+.wrapper .identity_item .identity_footer .defult_identity,.wrapper .identity_item .identity_footer .delete_identity{
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+}
+.wrapper .icon{
+  margin-right: 15rpx;
+}
+.wrapper .icon .icon-success{
+  color: #fff;
+  border-radius: 50%;
+  border: 1px solid #333;
+}
+.wrapper .icon .icon-success.selected{
+  color: #ff4965;
+  border-color: transparent
+}
+.wrapper .add_person{
+  border: 1px solid #ff4965;
+  padding: 10rpx;
+  font-size: 14px;
+  background-color: #ff4965;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  margin-top: 20rpx;
+}

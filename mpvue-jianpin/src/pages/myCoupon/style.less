@@ -1,0 +1,143 @@
+@color1: #6da3d9;
+@color2: #ddb878;
+@color3: #fda15a;
+.coupon-list{
+    padding: 30rpx 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: #f7f8f9;
+    .coupon-item{
+        display: flex;
+        align-items: center;
+        margin:0 30rpx 30rpx;
+        font-size: 14px;
+        background-color: #fff;
+        border-radius: 15rpx;
+        overflow: hidden;
+        .right{
+            flex: 1;
+            padding: 10rpx 30rpx;
+            .name-info{
+                padding: 10rpx 0;
+                line-height: 1;
+                .scope{
+                    display: inline-block;
+                    padding: 10rpx;
+                    vertical-align: middle;
+                    margin-top: -4rpx;
+                    color: #fff;
+                    background-color: @color1;
+                    border-radius: 4rpx;
+                }
+            }
+            .time-info{
+                color: #999;
+                font-size: 12px;
+                padding-bottom: 10rpx;
+                margin: 10rpx 0;
+                border-bottom: 1px solid #eee;
+                .btn-detail{
+                    color: @primary;
+                }
+            }
+            .note-info{
+                padding: 15rpx 0 5rpx;
+                font-size: 26rpx;
+                color: #999;
+                .iconfont{
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-size: 26rpx;
+                    color: #999;
+                }
+            }
+        }
+        .left{
+            box-sizing: border-box;
+            padding: 40rpx 0;
+            position: relative;
+            text-align: center;
+            width: 32.5%;
+            color: #fff;
+            background-color: @color1;
+            &:after{
+                content: '';
+                position: absolute;
+                top: 20rpx;
+                bottom: 20rpx;
+                border-right: 16rpx dotted #f7f8f9;
+                left: -8rpx;
+            }
+            .price{
+                font-weight: bold;
+                .num{
+                    font-size: 220%;
+                }
+            }
+            .full{
+
+            }
+        }
+        &.coupon-A{
+            .right{
+                .name-info{
+                    .scope{background-color:@color1;}
+                }
+                .price-info{
+                    color: @color1;
+                }
+            }
+            .left{
+                background-color: @color1;
+                .button{
+                    color: @color1;
+                }
+            }
+        }
+        &.coupon-S{
+            .right{
+                .name-info{
+                    .scope{background-color:@color2;}
+                }
+                .price-info{
+                    color: @color2;
+                }
+            }
+            .left{
+                background-color: @color2;
+                .button{
+                    color: @color2;
+                }
+            }
+        }
+        &.coupon-O{
+            .right{
+                .name-info{
+                    .scope{background-color:@color3;}
+                }
+                .price-info{
+                    color: @color3;
+                }
+            }
+            .left{
+                background-color: @color3;
+                .button{
+                    color: @color3;
+                }
+            }
+        }
+    }
+
+    .empty-coupon{
+        padding: 160rpx 0;
+        text-align: center;
+        color: #999;
+        .image{
+            display: block;
+            margin: 30rpx auto;
+            width: 300rpx;
+            height: 192rpx;
+        }
+    }
+    
+}

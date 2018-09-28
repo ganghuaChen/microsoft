@@ -1,0 +1,99 @@
+@import './color.less';
+
+.text-primary {
+    color: @primary !important;
+}
+
+.text-warning {
+    color: @warning !important;
+}
+
+.text-success {
+    color: @success !important;
+}
+
+.text-danger {
+    color: @danger !important;
+}
+
+.text-info {
+    color: @info !important;
+}
+
+.text-gray {
+    color: @gray !important;
+}
+
+.bg-primary {
+    color: #fff;
+    background-color: @primary !important;
+}
+
+.bg-warning {
+    color: #fff;
+    background-color: @warning !important;
+}
+
+.bg-success {
+    color: #fff;
+    background-color: @success !important;
+}
+
+.bg-danger {
+    color: #fff;
+    background-color: @danger !important;
+}
+
+.bg-info {
+    color: #fff;
+    background-color: @info !important;
+}
+
+.pull-left{
+    float: left !important;
+}
+
+.pull-right{
+    float: right !important;
+}
+
+.align-left {
+    text-align: left !important;
+}
+
+.align-right {
+    text-align: right !important;
+}
+
+.align-center {
+    text-align: center !important;
+}
+.scroll-view{
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.clearfix{
+    &:after{
+        content: ' ';
+        display: table;
+        clear: both;
+    }
+}
+
+.page-flex{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    & > .hd{
+
+    }
+    & > .bd{
+        flex: 1;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    & > .ft{
+        
+    }
+}

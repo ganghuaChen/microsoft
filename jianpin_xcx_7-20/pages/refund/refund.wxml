@@ -1,0 +1,46 @@
+<!--pages/refund/refund.wxml-->
+<view class="warpper">
+  <view class="refund_title">订单编号 : {{orderSn}}</view>
+  <view class="refund_box">
+    <view class="order_item_goods_detail" wx:for="{{goods}}" wx:key="order_goods">
+      <view class="goods_item" wx:for="{{item}}" wx:key="order_goods_item">
+        <view class="goods_left">
+          <view class="goods_img">
+            <image src="{{item.goods_img}}" mode="aspectFill"></image>
+          </view>
+        </view>
+        <view class="goods_right">
+          <view class="goods_desc">
+            <view class="goods_name">
+              {{item.business_name}} {{item.goods_name}}
+            </view>
+            <view class="goods_count">
+              {{'×'+item.num}}
+            </view>
+          </view>
+          <view class="goods_price">
+            {{"￥"+item.goodprice}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="refund_price">
+      <view class="refund_price_row">
+        <view class="refund_price_title">
+          退款金额
+        </view>
+        <view class="refund_price_value">
+          {{'￥'+price+'含税(￥'+o_tariff+')'}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="refund_title">退货原因</view>
+  <view class="refund_reason">
+    <textarea class="refund_reason_textarea" name="reason" maxlength="234" placeholder="请输入退货原因" value="{{reason}}" bindinput="syncInput"></textarea>
+  </view>
+  <view class="btn_box">
+    <button class="update" bindtap="update" type="primary">提交</button>
+    <button class="cancel" bindtap="cancel">取消</button>
+  </view>
+</view>

@@ -1,0 +1,124 @@
+/* pages/refund/refund.wxss */
+@import '../../style/iconfont/iconfont.wxss';
+
+page {
+  background-color: #eee;
+}
+
+.wrapper .ordew_item {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+}
+
+.wrapper .ordew_item .order_num {
+  padding: 28rpx 24rpx;
+  font-size: 14px;
+  line-height: 16px;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.wrapper .ordew_item .order_num .order_sn{
+  font-size: 14px;
+  color: #999;
+}
+.wrapper .ordew_item .order_num .order_status{
+  color: #ff4965;
+}
+.wrapper .ordew_item .goods_item_box {
+  padding: 18rpx 0;
+  background-color: #fafafa;
+}
+
+.wrapper .ordew_item .goods_item {
+  display: flex;
+  flex-direction: row;
+  padding: 0 24rpx;
+}
+
+.wrapper .ordew_item .goods_item .goods_left {
+  margin-right: 25rpx;
+}
+
+.wrapper .ordew_item .goods_item .goods_left image {
+  width: 152rpx;
+  height: 152rpx;
+}
+
+.wrapper .ordew_item .goods_item .goods_right {
+  flex: 1;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.wrapper .ordew_item .goods_item .goods_right .goods_price{
+  color: #ff4965;
+}
+.wrapper .ordew_item .goods_item .goods_right .goods_name{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.wrapper .refund_price{
+  color: #f6b74f;
+  font-size: 14px;
+  padding: 4rpx 24rpx 10rpx;
+  /*border-bottom: 1px dashed #eee;*/
+}
+.wrapper .detail{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  padding: 10rpx 24rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.wrapper .detail .btn_group{
+  display: flex;
+  flex-direction: row;
+  justify-content: center
+}
+.wrapper .detail .btn_group .btn{
+  padding: 6rpx 8rpx;
+  border: 1px solid #999;
+  border-radius: 6rpx;
+  font-size: 14px;
+  line-height: 14px;
+  height: 14px;
+  color: #999;
+  margin-left: 10rpx;
+}
+
+/*无商品时显示*/
+.empty_tips{
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.empty_tips .empty_icon{
+  border-radius: 50%;
+  width: 120rpx;
+  height: 120rpx;
+  padding: 20rpx;
+  text-align: center
+}
+.empty_tips .empty_icon i{
+  font-size: 40px;
+  line-height: 120rpx;
+  color: #666;
+}
+.empty_tips .empty_text{
+  margin-top: 50rpx;
+  font-size: 13px;
+}

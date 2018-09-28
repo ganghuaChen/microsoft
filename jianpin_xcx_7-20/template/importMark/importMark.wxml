@@ -1,0 +1,5 @@
+<template name="importMark">
+  <view class="imported_mark">
+    海外
+  </view>
+</template>

@@ -1,0 +1,122 @@
+/* pages/coupon/coupon.wxss */
+
+@import "../../style/iconfont/iconfont.wxss";
+
+page{
+  background-color: #e8e8ed;
+}
+.tab_bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: #333;
+  font-size: 15px;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-top: 1px #dddddd solid;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+.tab_bar .tab_item{
+  border-bottom: transparent 2px solid;
+  width: 25%;
+  text-align: center;
+  color: #666;
+}
+.tab_bar .coupon_count{
+  color: #d6d6da;
+}
+.tab_bar .active{
+  border-bottom-color: #ff4965;
+  color: #ff4965!important;
+}
+.ticket_list{
+  padding: 20rpx;
+  background-color: #fff;
+}
+.ticket_list .ticket_item{
+  border: #ff4965 1px solid;
+  border-radius: 5px;
+}
+.ticket-name{
+  font-size: 30rpx;
+   font-weight: 500
+}
+.item-bottom-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.use_range{
+  margin-right: 10rpx;
+}
+.ticket_list .ticket_item .ticket_price{
+  display: flex;
+  color: #ff4965;
+}
+.ticket_list .ticket_item .ticket_price .price_code{
+  font-size: 10px;
+}
+.ticket_list .ticket_item .ticket_price .ticket_price_left{
+  font-size: 23px;
+  min-width: 180rpx;
+}
+.ticket_list .ticket_item .ticket_price .ticket_price_right{
+  font-size: 12px;
+}
+.ticket_list .ticket_item .ticket_price,.ticket_list .ticket_item .ticket_range{
+  padding: 0 20rpx;
+}
+
+.ticket_list .ticket_item .ticket_price{
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+.ticket_list .ticket_item .ticket_range{
+  padding: 20rpx;
+  font-size: 12px;
+  text-align: center;
+  background-color: #ff4965;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.empty_tips{
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.empty_tips .empty_icon{
+  background-color: #d6d6da;
+  color: #fff;
+  border-radius: 50%;
+  width: 120rpx;
+  height: 120rpx;
+  padding: 20rpx;
+}
+.empty_tips .empty_icon text{
+  font-size: 35px;
+  line-height: 60px;
+}
+.empty_tips .empty_text{
+  margin-top: 50rpx;
+  font-size: 13px;
+}
+.item_ccc{
+  border: 1px solid #ccc!important;
+}
+.range_ccc{
+  color: #ccc!important;
+  background: #999!important;
+}
+.price_ccc{
+  background: rgba(0, 0, 0, .08)!important;
+  color: #ccc!important;
+}

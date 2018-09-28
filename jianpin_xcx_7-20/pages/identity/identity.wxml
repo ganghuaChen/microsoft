@@ -1,0 +1,22 @@
+<!--pages/identity/identity.wxml-->
+<view class="wrapper">
+  <view class="identity_item"
+  wx:for="{{identityList}}"
+  wx:key="identityItem" >
+    <view class="identity_name">{{item.name}}</view>
+    <view class="identity_num">身份证\t{{item.identity_card}}</view>
+    <view class="identity_footer">
+      <view class="defult_identity">
+        <view class="icon" bindtap="selectDefult" id="{{index}}">
+          <text class="iconfont icon-success {{item.selected}} {{item.is_default==1?'selected':''}}"></text>  
+        </view> 账户默认实名人
+      </view>
+      <view class="delete_identity" bindtap="delete" data-id="{{item.id}}">
+        <view class="icon">
+          <text class="iconfont icon-delete"></text>  
+        </view>删除
+      </view>
+    </view>
+  </view>
+  <view class="add_person" bindtap="addIdentityNav">添加实名信息</view>
+</view>
